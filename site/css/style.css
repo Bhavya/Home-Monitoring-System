@@ -1,0 +1,202 @@
+html{
+  margin: 0 auto;
+  padding: 0px;
+}
+
+body{
+  background: url('../img/bg2.jpg');
+  font-family: 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin: 0 auto;
+  padding: 0px;
+  font-size: 12px;
+  -webkit-font-smoothing: antialiased;
+}
+
+a{
+  text-decoration: none;
+  font-weight: bold;
+  color: #000;
+  padding: 2px;
+}
+
+a:hover{
+  text-decoration: none;
+  font-weight: bold;
+  color: #fff;
+  padding: 2px;
+  border-radius: 2px;
+  text-shadow: 0px 1px 1px #444;
+}
+
+.spec {
+  font-family: 'Arvo', arial, serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  color: #555;
+}
+
+.show{
+}
+
+a img{
+  border: 0px;
+}
+
+h1{
+  color: #444;
+  font-family: Georgia, arial, serif;
+  font-size: 22px;
+  font-style: italic;
+  font-weight: normal;
+  text-shadow: 0px 1px 1px #bbb;
+}
+
+li{
+  color: #666;
+}
+
+p{
+  margin-left: 30px;
+  color: #666;
+}
+
+div.header{
+  background: #333; 
+  border-bottom: 4px #fff solid;
+  display:block;
+  height: 150px;
+  left :0;
+  margin: 0 auto; 
+  top: 0;
+  width: 100%; 
+}
+
+div.footer{
+  background: url('../img/gradient2.png') center top repeat-x; 
+  border-top: 5px #fff solid;
+  display:block;
+  height: 200px;
+  left :0;
+  margin: 0 auto; 
+  top: 0;
+  width: 100%; 
+}
+
+div.middle{
+  background: url('../img/interior.jpg') center top repeat-x; 
+  display:block;
+  height: 450px;
+  left :0;
+  margin: 0 auto; 
+  top: 0;
+  width: 100%; 
+}
+
+div.content{
+  width: 960px;
+  margin:0 auto;
+}
+
+div.loginarea{
+  padding: 15px;
+}
+
+div.loginbox{
+  -moz-border-radius: 15px;
+  background: url('../img/loginbg.png');
+  border-radius: 15px;
+  float: right;
+  padding: 15px;
+}
+
+div.loginbox h2{
+  font-family: 'Arvo', arial, serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: normal;
+  color: #fff;
+  text-shadow: 0px 1px 1px #444;
+}
+
+div.loginbox a{
+  color: #ddd;
+}
+
+div.loginbox a:hover{
+    text-shadow: 0px 0px 20px #fff;
+}
+
+
+input.cred{
+  background: url('../img/input.png') transparent;
+  border: 0px;
+  color: #999;
+  display: block;
+  font-size: 18px;
+  height: 37px;
+  margin-top: 10px;
+  padding: 0px 3px 0px 3px;
+  width: 295px;
+}
+
+img.logo{
+  margin-top: 75px;
+}
+
+div.bottom {
+  float: left;
+  padding-top: 15px;
+  height: 150px;
+  width: 160px;
+}
+
+div.about {
+  width: 350px;
+  padding-right: 25px;
+  text-align: justify;
+  color: #454545;
+}
+
+div.faq {
+  width: 240px;
+  padding-right: 25px;
+  text-align: justify;
+  color: #454545;
+}
+
+div.bottom a{
+  text-decoration: none;
+  font-weight: normal;
+  color: #4a7f95;
+  padding: 2px;
+  text-shadow: 0px 1px 1px #fff;
+}
+
+div.bottom a:hover{
+  color: #000;
+}
+
+div.absolutebottom {
+  bottom: 0;
+  color: #777;
+  font-size: 11px;
+  padding-top: 20px;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+
+#snd textarea{
+  width: 295px;
+  height: 169px;
+  background: url('../img/textarea.png') transparent;
+  padding: 0px 3px 0px 3px;
+  border: 0px;
+  font-family: Arial;
+  font-size: 18px;
+  resize: none;
+  color: #999;
+}
+
