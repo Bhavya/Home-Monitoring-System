@@ -1,7 +1,17 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <?php
   include 'util.php';
+  $loginheader = "Login";
+  $loginmsg = "";
+  if(ISSET($_GET['login'])){
+    if(validateUser()){
+      header('Location: home.php');
+    } else {
+      $loginheader = "Oops!";
+      $loginmsg = "That combination of credentials does not exist.<br/> Please try again, reset your password, or sign up.";
+    }
+  }
 ?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
   <head>
     <title> HOMOS - The Comprehensive Home Monitoring System </title>
@@ -27,12 +37,15 @@
     <div class="middle">
       <div class="content loginarea">
         <div class="loginbox">
-          <h2>Login</h2>
-          <input type="Text" class="cred" placeholder="Username">
-          <input type="Password" class="cred" placeholder="Password">
-          <button style="width:100%;margin-top:10px;margin-bottom:20px"> Login </button>
-          <br />
-          <a href=>Forgot your password?</a>
+          <h2><?php echo $loginheader;?></h2>
+          <?php echo $loginmsg;?>
+          <form action="<?php echo $_SERVER['PHP_SELF']."?login=true" ?>" method="post">
+            <input name="username" type="Text" class="cred" placeholder="Username">
+            <input name="password" type="Password" class="cred" placeholder="Password">
+            <button type="submit" style="width:100%;margin-top:10px;margin-bottom:20px"> Login </button>
+          </form>
+          <br/>
+          <a href=>Forgot your password?</a> | <a href="register.php">Register with us</a>
         </div>
       </div>
     </div>

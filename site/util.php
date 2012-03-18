@@ -1,6 +1,6 @@
 <?php
 
-	function db_connect(){
+	function db_connect() {
 		$link = mysql_connect('localhost', 'karmabub_homos', 'homos');
 		if (!$link) {
 		    die('Could not connect: ' . mysql_error());
@@ -10,7 +10,7 @@
 		}
 	}
 
-	function set_session($name, $val){
+	function set_session($name, $val) {
 		if(!ISSET($_SESSION[$name])){
 			$_SESSION[$name] = $val;
 		}
@@ -40,5 +40,39 @@
 		} else {
 			echo '<h2>Congrats!</h2> You have been successfully registered. You may now log in to HOMOS';
 		}
+	}
+
+	function validateUser() {
+		unset($_SESSION['loggedin']);
+
+		$username = $_POST['username'];
+		$password = md5($_POST['password']);
+
+		$result = mysql_query("SELECT * FROM user_data WHERE username='$username'") or die(mysql_error());  
+		$row = mysql_fetch_array( $result );
+		if($password == $row['password']){
+			set_session('firstname', $row['firstname']);
+			set_session('lastname', $row['lastname']);
+			set_session('loggedin', true);
+			set_session('password', $row['password']);
+			set_session('telno', $row['telno']);
+			set_session('username', $username);
+			return true;
+		}
+		return false;
+	}
+
+  	db_connect();
+	session_start();
+
+	function renderHead(){ ?>
+		<title> HOMOS - The Comprehensive Home Monitoring System </title>
+	    <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+	    <link type="text/css" href="css/style.css" rel="stylesheet" />
+	    <link type="text/css" href="css/ui-lightness/Aristo.css" rel="stylesheet" />
+	    <script type="text/javascript" src="js/jquery.min.js"></script>
+	  	<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+	  	<script type="text/javascript" src="js/jquery.tools.min.js"></script>
+	<?php
 	}
 ?>
