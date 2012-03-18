@@ -32,6 +32,10 @@
 	   	$telno = $_POST['telno'];
 	   	$username = $_POST['email'];
 
+	   	if($house_id == "") {
+	   		$house_id = md5($telno);
+	   	}
+
 	   	$sql = "INSERT INTO user_data (firstname, lastname, username, password, house_id, telno) 
 	   	VALUES ('$firstname', '$lastname', '$username', '$password', '$house_id', '$telno');";
 	   	$link = mysql_query($sql);
@@ -52,6 +56,7 @@
 		$row = mysql_fetch_array( $result );
 		if($password == $row['password']){
 			set_session('firstname', $row['firstname']);
+			set_session('house_id', $row['house_id']);
 			set_session('lastname', $row['lastname']);
 			set_session('loggedin', true);
 			set_session('password', $row['password']);
@@ -74,5 +79,35 @@
 	  	<script type="text/javascript" src="js/jquery-ui.min.js"></script>
 	  	<script type="text/javascript" src="js/jquery.tools.min.js"></script>
 	<?php
+	}
+
+	function registerLoggedEvent($house_id, $timestamp, $event) {
+		$sql = "INSERT INTO update_spam (house_id, timestamp, event) 
+	   	VALUES ('$house_id', '$timestamp', '$event');";
+	   	$link = mysql_query($sql);
+	   	if (!$link) {
+		    die('Whoops! Something went wrong. ' . mysql_error());
+		}
+	}
+
+	function renderLoggedEvent($timestamp, $event) { ?>
+		<table class="event">
+			<tr>
+				<td class="timestamp">
+					<?php echo $timestamp;?>
+				</td>
+				<td>
+					<?php echo $event;?> <span style="float:right">x</span>
+				</td>
+			</tr>
+		</table>
+	<?php
+	}
+
+	function renderAllLoggedEvents($house_id){
+		$result = mysql_query("SELECT * FROM update_spam WHERE house_id='$house_id'") or die(mysql_error());  
+		while($row = mysql_fetch_array($result)){
+			renderLoggedEvent($row['timestamp'], $row['event']);
+		}
 	}
 ?>

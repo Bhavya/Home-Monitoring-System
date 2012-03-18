@@ -233,13 +233,38 @@ div.welcome {
   -moz-border-radius: 15px;
   background: #fff;
   border-radius: 15px;
-  color: #444;
+  color: #777;
   font-family: Trebuchet MS, arial, serif;
   font-size: 22px;
   margin: 5px;
   padding: 15px;
   text-shadow: 0px 1px 1px #ccc;
   width: 500px;
+}
+
+div.updates {
+  -moz-border-radius: 15px;
+  background: #fff;
+  border-radius: 15px;
+  color: #777;
+  font-family: Trebuchet MS, arial, serif;
+  margin: 5px;
+  padding: 15px;
+  text-shadow: 0px 1px 1px #ccc;
+  width: 500px;
+}
+
+table.event {
+  width: 100%;
+  border-bottom: 1px solid #bbb;
+}
+
+table.event td {
+  padding: 10px;
+}
+
+table.event .timestamp {
+  width: 150px;
 }
 
 #snd textarea{

@@ -8,5 +8,4 @@
  	$username = get_session('username');
  	$telno = get_session('telno');
  	$house_id = get_session('houseid');
-
 ?>

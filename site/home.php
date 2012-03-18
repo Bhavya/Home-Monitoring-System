@@ -25,6 +25,12 @@
     	<div class="welcome">
     		Welcome, <?php echo $firstname;?>!
     	</div>
+    	<div class="updates">
+    		<?php 
+    			//registerLoggedEvent($house_id, date("F j, Y, g:i a"), 'Bedroom Lights Off');
+    			renderAllLoggedEvents($house_id);
+    		?> 
+    	</div>
     </div>
     <div class="absolutebottom">
       Copyright HOMOS Corporation | Site Design by Bhavya Kashyap
