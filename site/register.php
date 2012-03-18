@@ -18,25 +18,31 @@
         //$('[placeholder]').defaultValue();
         $('#regerror').hide();
         $('#register').click(function(){
+              var warning = false;
               if(!$('#fname').val()){
                 $('#fname').addClass('warning');
-                $('#regerror').show('slow');
+                warning = true;
               }
               if(!$('#lname').val()){
                 $('#lname').addClass('warning');
-                $('#regerror').show('slow');
+                warning = true;
               }
               if(!$('#email').val()){
                 $('#email').addClass('warning');
-                $('#regerror').show('slow');
+                warning = true;
               }
               if(!$('#password').val()){
                 $('#password').addClass('warning');
-                $('#regerror').show('slow');
+                warning = true;
               }
-              if(!$('#telnum').val()){
-                $('#telnum').addClass('warning');
+              if(!$('#telno').val()){
+                $('#telnom').addClass('warning');
+                warning = true;
+              }
+
+              if(warning){
                 $('#regerror').show('slow');
+                return false;
               }
             }
           );
@@ -52,23 +58,33 @@
     <div class="middle">
       <div class="content loginarea">
         <div class="registerbox">
+          <?php
+            if(!ISSET($_GET['register'])){
+          ?>
           <h2>Register</h2>
           <div id="regerror" class="ui-state-error ui-corner-all" style="padding: 0 .7em;"> 
             <p><span class="ui-icon ui-icon-alert" style="float: left; margin-right: .7em;"></span> 
             Please fill in the highlighted fields. </p>
           </div>
-          <div class="reginputs">
-            <input id="fname" type="Text" class="cred" placeholder="First Name">
-            <input id="email"type="Text" class="cred" placeholder="Email">
-            <input id="password" type="Password" class="cred" placeholder="Password">
-          </div>
-          <div class="reginputs">
-            <input id="lname"type="Text" class="cred" placeholder="Last Name">
-            <input id="homeid" type="Text" class="cred" placeholder="HomeID (leave blank if first time)">
-            <input id="telnum" type="Text" class="cred" placeholder="Telephone Number">
+          <form action="<?php echo $_SERVER['PHP_SELF']."?register=true" ?>" method="post">
+            <div class="reginputs">
+              <input name="firstname" id="fname" type="Text" class="cred" placeholder="First Name">
+              <input name="email" id="email"type="Text" class="cred" placeholder="Email">
+              <input name="password" id="password" type="Password" class="cred" placeholder="Password">
+            </div>
+            <div class="reginputs">
+              <input name="lastname" id="lname"type="Text" class="cred" placeholder="Last Name">
+              <input name="house_id" id="house_id" type="Text" class="cred" placeholder="HomeID (leave blank if first time)">
+              <input name="telno" id="telno" type="Text" class="cred" placeholder="Telephone Number">
 
-          </div>
-          <button id="register" style="width:100%;margin-top:10px;margin-bottom:20px"> Register Now! </button>
+            </div>
+            <button id="register" type="submit" style="width:100%;margin-top:10px;margin-bottom:20px"> Register Now! </button>
+          </form>
+          <?php
+            } else {
+              registerUser();
+            }
+          ?>
         </div>
       </div>
     </div>
