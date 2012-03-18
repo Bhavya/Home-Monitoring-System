@@ -33,7 +33,7 @@
 	   	$username = $_POST['email'];
 
 	   	if($house_id == "") {
-	   		$house_id = md5($telno);
+	   		$house_id = substr(md5($telno), 0, 8);
 	   	}
 
 	   	$sql = "INSERT INTO user_data (firstname, lastname, username, password, house_id, telno) 
@@ -43,12 +43,13 @@
 		    die('<h2>Whoops!</h2> Something went wrong. ' . mysql_error());
 		} else {
 			echo '<h2>Congrats!</h2> You have been successfully registered. You may now log in to HOMOS';
+			registerLoggedEvent($house_id, date("F j, Y, g:i a"), "You registered with HOMOS Home Monitoring System.");
 		}
 	}
 
 	function validateUser() {
-		unset($_SESSION['loggedin']);
-
+		unsetEverything();
+		
 		$username = $_POST['username'];
 		$password = md5($_POST['password']);
 
@@ -109,5 +110,15 @@
 		while($row = mysql_fetch_array($result)){
 			renderLoggedEvent($row['timestamp'], $row['event']);
 		}
+	}
+
+	function unsetEverything(){
+		unset($_SESSION['loggedin']);
+		unset($_SESSION['firstname']);
+		unset($_SESSION['lastname']);
+		unset($_SESSION['house_id']);
+		unset($_SESSION['password']);
+		unset($_SESSION['telno']);
+		unset($_SESSION['loggedin']);
 	}
 ?>

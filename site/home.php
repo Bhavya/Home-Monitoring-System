@@ -1,5 +1,9 @@
 <?php
   include 'user_auth.php';
+  if(ISSET($_GET['logout'])){
+  	unsetEverything();
+  	header('Location: index.php');
+  }
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -17,7 +21,10 @@
       <div class="content">
         <img src="img/logo.png" class="logo">
         <div class="topmenu">
-        	<?php echo $firstname." ".$lastname;?>
+        	<?php echo $firstname." ".$lastname;?> | 
+        	<a href="<?php echo $_SERVER['PHP_SELF']."?logout=true"?>">
+        		Logout
+        	</a>
         </div>
       </div>
     </div>
@@ -27,7 +34,7 @@
     	</div>
     	<div class="updates">
     		<?php 
-    			//registerLoggedEvent($house_id, date("F j, Y, g:i a"), 'Bedroom Lights Off');
+    			registerLoggedEvent($house_id, date("F j, Y, g:i a"), 'Bedroom Lights Off');
     			renderAllLoggedEvents($house_id);
     		?> 
     	</div>
