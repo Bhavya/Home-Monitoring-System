@@ -328,3 +328,19 @@ div.info {
   font-size: 14px;
 }
 
+table.menu a {
+  font-weight: normal;
+}
+
+table.menu a:hover {
+  text-shadow: none;
+}
+
+table.menu td:hover {
+  background: #ddd;
+}
+
+table.menu td:hover a {
+  color: #777;
+}
+

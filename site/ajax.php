@@ -31,4 +31,32 @@
 		        break;
 		}
 	}
+
+	if(ISSET($_GET['sensor'])) {
+		$sensor = $_GET['sensor'];
+		$house_id = $_GET['id'];
+ 		switch($sensor) {
+          case "door":
+            renderDoorData($house_id);
+            break;
+          case "motion":
+          	renderMotionData($house_id);
+            break;
+          case "floodlight":
+          	renderFloodlightData($house_id);
+            break;
+          case "camera":
+          	renderCameraData($house_id);
+            break;
+          case "lights":
+          	renderLightsData($house_id);
+            break;
+          case "temperature":
+          	renderTemperatureData($house_id);
+            break;
+          case "power":
+          	renderPowerData($house_id);
+            break;
+        }
+    }
 ?>

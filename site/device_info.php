@@ -29,56 +29,22 @@
             $query = "SELECT * FROM update_spam WHERE house_id='$house_id'";
             $query = s_enc($query);
           ?>
-          var loadUrl = "ajax.php?type=feed&id=<?php echo $house_id;?>";  
+
+
+        <?php 
+          if(ISSET($_GET['sensor'])){
+            $sensor = $_GET['sensor'];
+            $params = "sensor=$sensor&id=$house_id";
+          }
+        ?> 
+
+          var loadUrl = "ajax.php?<?php echo $params;?>";  
           $(".updates").html(ajax_load);
           setInterval(function(){
             $(".updates").ready(function(){  
               $(".updates").load(loadUrl);  
             });
           }, 3000);       
-
-          $( "#dialog:ui-dialog" ).dialog( "destroy" );
-  
-          $( "#dialog-modal-confirm" ).dialog({
-            autoOpen: false,
-            height: 180,
-            modal: true,
-            buttons: { 
-              "Yes" : function(){ 
-                $( this ).dialog( "close" );
-              },
-              Cancel: function() {
-                $( this ).dialog( "close" );
-              }
-            }
-          });
-
-          <?php 
-            if(get_session('new')){?>
-            $( "#dialog-modal-new" ).dialog({
-              height: 345,
-              width: 327,
-              modal: true,
-              buttons: { 
-                Ok : function(){
-                  var loadUrl = "ajax.php?type=address&id=<?php echo $house_id;?>&number=" +$("#number").val() + "&city=" + $("#city").val() + "&province=" + $("#province").val()  + "&postal=" + $("#postal").val();
-                  $("#hidden").load(loadUrl);
-                  $( this ).dialog( "close" );
-                }
-              }
-            });
-          <?php } ?>
-
-          $("#radio1").click(function() {
-              var loadUrl = "ajax.php?type=onoff&state=1&id=<?php echo $house_id;?>";
-              $("#dialog-modal-confirm" ).dialog("open");
-              $("#hidden").load(loadUrl);
-          });
-          $("#radio2").click(function() {
-              var loadUrl = "ajax.php?type=onoff&state=0&id=<?php echo $house_id;?>";
-              $("#dialog-modal-confirm").dialog("open");
-              $("#hidden").load(loadUrl);
-          });
   	  });
   	 </script>
   </head>
@@ -121,36 +87,9 @@
     			</tr>
     		</table>
     	</div>
-    	<div class="welcome">
-    		Welcome, <?php echo $firstname;?>!
-    		<div class="general_info">
-	    		<div id="map"></div>
-	    		<div class="info">
-	    			<?php renderAboutInfo($house_id);?>
-				</div>
-			</div>
-    	</div>
-      <div id="hidden"></div>
     	<div class="updates">
-    		<?php 
-    			//registerLoggedEvent($house_id, date("F j, Y, g:i a"), 'Garage Door Unlocked');
-    		?> 
     	</div>
     </div>
 
-    <div id="dialog-modal-confirm" title="Confirm Setting Change">
-      <p>Are you sure you would like to change this setting?</p>
-    </div>
-
-     <?php 
-      if(get_session('new')){?>
-      <div id="dialog-modal-new" title="Welcome!">
-        <p>Welcome to HOMOS, <?php echo $firstname;?>! Please update your address to proceed.</p>
-        <input id="number" type="Text" class="cred" placeholder="Number and Street Name (No Spaces)">
-        <input id="city" type="Text" class="cred" placeholder="City">
-        <input id="province" type="Text" class="cred" placeholder="Province">
-        <input id="postal" type="Text" class="cred" placeholder="Postal Code">       
-      </div>
-    <?php } ?>
   </body>
 </html>
