@@ -53,6 +53,11 @@
 		$link = mysql_query($sql);	   
 	}
 
+	function enableSystem($house_id, $state){
+		$sql = "UPDATE household_data SET state='$state' WHERE house_id='$house_id';";
+		$link = mysql_query($sql);	   
+	}
+
 	function validateUser() {
 		unsetEverything();
 

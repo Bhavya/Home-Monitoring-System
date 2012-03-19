@@ -25,8 +25,9 @@
 		        $address = "$number,\n$city,\n$province $postal";
 		        registerAddress($house_id, $address);
 		        break;
-		    case "cake":
-		        echo "i is cake";
+		    case "onoff":
+		        $state = $_GET['state'];
+		        enableSystem($house_id, $state);
 		        break;
 		}
 	}

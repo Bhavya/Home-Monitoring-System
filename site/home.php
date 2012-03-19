@@ -66,6 +66,16 @@
               }
             });
           <?php } ?>
+
+          $("#radio1").click(function() {
+              var loadUrl = "backdoor.php?type=onoff&id=<?php echo $house_id;?>&state=1";
+              alert(loadUrl);
+              $("#hidden").load(loadUrl);
+          });
+          $("#radio2").click(function() {
+              var loadUrl = "backdoor.php?type=onoff&id=<?php echo $house_id;?>&state=0";
+              $("#hidden").load(loadUrl);
+          });
   	  });
   	 </script>
   </head>
