@@ -29,7 +29,7 @@
             $query = "SELECT * FROM update_spam WHERE house_id='$house_id'";
             $query = s_enc($query);
           ?>
-          var loadUrl = "backdoor.php?type=feed&id=<?php echo $house_id;?>";  
+          var loadUrl = "ajax.php?type=feed&id=<?php echo $house_id;?>";  
           $(".updates").html(ajax_load);
           setInterval(function(){
             $(".updates").ready(function(){  
@@ -59,7 +59,7 @@
               modal: true,
               buttons: { 
                 Ok : function(){
-                  var loadUrl = "backdoor.php?type=address&id=<?php echo $house_id;?>&number=" +$("#number").val() + "&city=" + $("#city").val() + "&province=" + $("#province").val()  + "&postal=" + $("#postal").val();
+                  var loadUrl = "ajax.php?type=address&id=<?php echo $house_id;?>&number=" +$("#number").val() + "&city=" + $("#city").val() + "&province=" + $("#province").val()  + "&postal=" + $("#postal").val();
                   $("#hidden").load(loadUrl);
                   $( this ).dialog( "close" );
                 }
@@ -68,12 +68,12 @@
           <?php } ?>
 
           $("#radio1").click(function() {
-              var loadUrl = "backdoor.php?type=onoff&id=<?php echo $house_id;?>&state=1";
+              var loadUrl = "ajax.php?type=onoff&id=<?php echo $house_id;?>&state=1";
               alert(loadUrl);
               $("#hidden").load(loadUrl);
           });
           $("#radio2").click(function() {
-              var loadUrl = "backdoor.php?type=onoff&id=<?php echo $house_id;?>&state=0";
+              var loadUrl = "ajax.php?type=onoff&id=<?php echo $house_id;?>&state=0";
               $("#hidden").load(loadUrl);
           });
   	  });
