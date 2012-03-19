@@ -11,7 +11,10 @@ if (empty($_SESSION['house_id'])) {
 }
 
 require_once '../shared/util.php';
+require_once '../shared/house.php';
 db_connect();
 
-require 'tpl/main.tpl';
+$houseInfo = HouseholdInfo::load($_SESSION['house_id']);
+
+require 'tpl/houseinfo.tpl';
 ?>
