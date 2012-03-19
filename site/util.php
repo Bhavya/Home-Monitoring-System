@@ -43,6 +43,8 @@
 		    die('<h2>Whoops!</h2> Something went wrong. ' . mysql_error());
 		} else {
 			echo '<h2>Congrats!</h2> You have been successfully registered. You may now log in to HOMOS';
+			$sql = "INSERT INTO household_data (house_id, phone) VALUES ($house_id', '$telno');";
+		   	$link = mysql_query($sql);	   
 			registerLoggedEvent($house_id, date("F j, Y, g:i a"), "You registered with HOMOS Home Monitoring System.");
 		}
 	}
@@ -110,7 +112,11 @@
 	function renderAllLoggedEvents($house_id){
 		$result = mysql_query("SELECT * FROM update_spam WHERE house_id='$house_id'") or die(mysql_error());  
 		while($row = mysql_fetch_array($result)){
-			renderLoggedEvent($row['timestamp'], $row['event']);
+			$results[] = $row;
+		}
+		$results = array_reverse($results);
+		foreach ($results as $result) {
+			renderLoggedEvent($result[1], $result[2]);
 		}
 	}
 
@@ -122,5 +128,36 @@
 		unset($_SESSION['password']);
 		unset($_SESSION['telno']);
 		unset($_SESSION['loggedin']);
+	}
+
+	function renderAboutInfo($house_id){
+		$result = mysql_query("SELECT * FROM household_data WHERE house_id='$house_id'") or die(mysql_error());  
+		while($row = mysql_fetch_array($result)){
+			echo 'Household ID: '.$row['house_id'];
+			echo '<br/>Address: '.$row['address'];
+			echo '<br/>Phone: '.$row['phone'];?>
+				<div id="radio">
+					<input type="radio" id="radio1" name="radio" checked="<?php if($row['state']==1) echo 'checked';?>" /><label for="radio1">Enabled</label>
+					<input type="radio" id="radio2" name="radio" checked="<?php if($row['state']!=1) echo 'checked';?>" /><label for="radio2">Disabled</label>
+				</div>
+		<?php
+		}
+	}
+
+	function s_enc($s)
+	{
+		for( $i = 0; $i < strlen($s); $i++ ){
+			$r[] = ord($s[$i]);
+		}
+		return implode('.', $r);
+	}
+
+	function s_dec($s)
+	{
+		$s = explode(".", $s);
+		for( $i = 0; $i < count($s); $i++ ){
+			$s[$i] = chr($s[$i]);
+		}
+		return implode('', $s);
 	}
 ?>

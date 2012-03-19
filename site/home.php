@@ -19,6 +19,22 @@
                               html: "Tettnang, Germany",
                               popup: false }],
                   zoom: 16 });
+
+          $.ajaxSetup ({  
+            cache: false  
+          }); 
+          var ajax_load = "<CENTER>Please wait while your feed is being generated.<br /><img src='img/load.gif' alt='loading...' /></CENTER>";
+          <?php
+            $query = "SELECT * FROM update_spam WHERE house_id='$house_id'";
+            $query = s_enc($query);
+          ?>
+          var loadUrl = "backdoor.php?type=feed&id=<?php echo $house_id;?>";  
+          $(".updates").html(ajax_load);
+          setInterval(function(){
+            $(".updates").ready(function(){  
+              $(".updates").load(loadUrl);  
+            });
+          }, 3000);       
   	  });
   	 </script>
   </head>
@@ -66,23 +82,15 @@
     		<div class="general_info">
 	    		<div id="map"></div>
 	    		<div class="info">
-	    			Address
-		    		<div id="radio">
-						<input type="radio" id="radio1" name="radio" checked="checked" /><label for="radio1">Enabled</label>
-						<input type="radio" id="radio2" name="radio" /><label for="radio2">Disabled</label>
-					</div>
+	    			<?php renderAboutInfo($house_id);?>
 				</div>
 			</div>
     	</div>
     	<div class="updates">
     		<?php 
     			//registerLoggedEvent($house_id, date("F j, Y, g:i a"), 'Kitchen Lights Off');
-    			renderAllLoggedEvents($house_id);
     		?> 
     	</div>
-    </div>
-    <div class="absolutebottom">
-      Copyright HOMOS Corporation | Site Design by Bhavya Kashyap
     </div>
   </body>
 </html>
