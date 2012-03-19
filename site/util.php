@@ -11,9 +11,7 @@
 	}
 
 	function set_session($name, $val) {
-		if(!ISSET($_SESSION[$name])){
-			$_SESSION[$name] = $val;
-		}
+		$_SESSION[$name] = $val;
 	}
 
 	function get_session($name){
@@ -43,10 +41,16 @@
 		    die('<h2>Whoops!</h2> Something went wrong. ' . mysql_error());
 		} else {
 			echo '<h2>Congrats!</h2> You have been successfully registered. You may now log in to HOMOS';
-			$sql = "INSERT INTO household_data (house_id, phone) VALUES ($house_id', '$telno');";
+			$sql = "INSERT INTO household_data (house_id, address, phone, state) VALUES ('$house_id', '', '$telno', '');";
 		   	$link = mysql_query($sql);	   
 			registerLoggedEvent($house_id, date("F j, Y, g:i a"), "You registered with HOMOS Home Monitoring System.");
+			set_session('new', true);
 		}
+	}
+
+	function registerAddress($house_id, $address){
+		$sql = "UPDATE household_data SET address='$address' WHERE house_id='$house_id';";
+		$link = mysql_query($sql);	   
 	}
 
 	function validateUser() {
@@ -133,12 +137,12 @@
 	function renderAboutInfo($house_id){
 		$result = mysql_query("SELECT * FROM household_data WHERE house_id='$house_id'") or die(mysql_error());  
 		while($row = mysql_fetch_array($result)){
-			echo 'Household ID: '.$row['house_id'];
-			echo '<br/>Address: '.$row['address'];
-			echo '<br/>Phone: '.$row['phone'];?>
+			echo '<b>Household ID:</b> <br/>'.$row['house_id'];
+			echo '<br/><br/><b>Address:</b> <br/>'.str_replace(",", ",<br />", $row['address']);
+			echo '<br/><br/><b>Phone:</b> <br/>'.$row['phone']."<br/><br/>";?>
 				<div id="radio">
-					<input type="radio" id="radio1" name="radio" checked="<?php if($row['state']==1) echo 'checked';?>" /><label for="radio1">Enabled</label>
-					<input type="radio" id="radio2" name="radio" checked="<?php if($row['state']!=1) echo 'checked';?>" /><label for="radio2">Disabled</label>
+					<input type="radio" id="radio1" name="radio" <?php if($row['state']==1) echo 'checked';?> /><label for="radio1">Enabled</label>
+					<input type="radio" id="radio2" name="radio" <?php if($row['state']!=1) echo 'checked';?> /><label for="radio2">Disabled</label>
 				</div>
 		<?php
 		}

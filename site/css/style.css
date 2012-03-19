@@ -304,7 +304,7 @@ table.menu img {
   width: 60px;
 }
 
-#snd textarea{
+textarea.address {
   width: 295px;
   height: 169px;
   background: url('../img/textarea.png') transparent;

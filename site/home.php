@@ -1,6 +1,7 @@
 <?php
   include 'user_auth.php';
   if(ISSET($_GET['logout'])){
+    set_session('new', false);
   	unsetEverything();
   	header('Location: index.php');
   }
@@ -35,6 +36,36 @@
               $(".updates").load(loadUrl);  
             });
           }, 3000);       
+
+          $( "#dialog:ui-dialog" ).dialog( "destroy" );
+  
+          $( "#dialog-modal-confirm" ).dialog({
+            autoOpen: false,
+            height: 180,
+            modal: true,
+            buttons: { 
+              "Yes I do" : function(){},
+              Cancel: function() {
+                $( this ).dialog( "close" );
+              }
+            }
+          });
+
+          <?php 
+            if(get_session('new')){?>
+            $( "#dialog-modal-new" ).dialog({
+              height: 345,
+              width: 327,
+              modal: true,
+              buttons: { 
+                Ok : function(){
+                  var loadUrl = "backdoor.php?type=address&id=<?php echo $house_id;?>&number=" +$("#number").val() + "&city=" + $("#city").val() + "&province=" + $("#province").val()  + "&postal=" + $("#postal").val();
+                  $("#hidden").load(loadUrl);
+                  $( this ).dialog( "close" );
+                }
+              }
+            });
+          <?php } ?>
   	  });
   	 </script>
   </head>
@@ -92,5 +123,21 @@
     		?> 
     	</div>
     </div>
+
+    <div id="dialog-modal-confirm" title="Confirm Setting Change">
+      <p>Are you sure you would like to change this setting?</p>
+    </div>
+
+     <?php 
+      if(get_session('new')){?>
+      <div id="dialog-modal-new" title="Welcome!">
+        <p>Welcome to HOMOS, <?php echo $firstname;?>! Please update your address to proceed.</p>
+        <input id="number" type="Text" class="cred" placeholder="Number and Street Name">
+        <input id="city" type="Text" class="cred" placeholder="City">
+        <input id="province" type="Text" class="cred" placeholder="Province">
+        <input id="postal" type="Text" class="cred" placeholder="Postal Code">       
+      </div>
+      <div id="hidden"></div>
+    <?php } ?>
   </body>
 </html>

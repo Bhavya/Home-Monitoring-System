@@ -35,7 +35,7 @@
                 warning = true;
               }
               if(!$('#telno').val()){
-                $('#telnom').addClass('warning');
+                $('#telno').addClass('warning');
                 warning = true;
               }
 

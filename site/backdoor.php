@@ -11,13 +11,19 @@
 
 	if(ISSET($_GET['type'])){
 		$type = $_GET['type'];
+		$house_id = $_GET['id'];
 		switch ($type) {
 		    case "feed":
-		        $house_id = $_GET['id'];
 		        renderAllLoggedEvents($house_id);
 		        break;
-		    case "bar":
-		        echo "i is bar";
+		    case "address":
+		        $number = $_GET['number'];
+		        $city = $_GET['city'];
+		        $province = $_GET['province'];
+		        $postal = $_GET['postal'];
+
+		        $address = "$number,\n$city,\n$province $postal";
+		        registerAddress($house_id, $address);
 		        break;
 		    case "cake":
 		        echo "i is cake";
