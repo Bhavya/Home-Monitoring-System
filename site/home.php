@@ -44,7 +44,9 @@
             height: 180,
             modal: true,
             buttons: { 
-              "Yes I do" : function(){},
+              "Yes" : function(){ 
+                $( this ).dialog( "close" );
+              },
               Cancel: function() {
                 $( this ).dialog( "close" );
               }
@@ -68,12 +70,13 @@
           <?php } ?>
 
           $("#radio1").click(function() {
-              var loadUrl = "ajax.php?type=onoff&id=<?php echo $house_id;?>&state=1";
-              alert(loadUrl);
+              var loadUrl = "ajax.php?type=onoff&state=1&id=<?php echo $house_id;?>";
+              $("#dialog-modal-confirm" ).dialog("open");
               $("#hidden").load(loadUrl);
           });
           $("#radio2").click(function() {
-              var loadUrl = "ajax.php?type=onoff&id=<?php echo $house_id;?>&state=0";
+              var loadUrl = "ajax.php?type=onoff&state=0&id=<?php echo $house_id;?>";
+              $("#dialog-modal-confirm").dialog("open");
               $("#hidden").load(loadUrl);
           });
   	  });
@@ -127,9 +130,10 @@
 				</div>
 			</div>
     	</div>
+      <div id="hidden"></div>
     	<div class="updates">
     		<?php 
-    			//registerLoggedEvent($house_id, date("F j, Y, g:i a"), 'Kitchen Lights Off');
+    			//registerLoggedEvent($house_id, date("F j, Y, g:i a"), 'Garage Door Unlocked');
     		?> 
     	</div>
     </div>
@@ -142,12 +146,11 @@
       if(get_session('new')){?>
       <div id="dialog-modal-new" title="Welcome!">
         <p>Welcome to HOMOS, <?php echo $firstname;?>! Please update your address to proceed.</p>
-        <input id="number" type="Text" class="cred" placeholder="Number and Street Name">
+        <input id="number" type="Text" class="cred" placeholder="Number and Street Name (No Spaces)">
         <input id="city" type="Text" class="cred" placeholder="City">
         <input id="province" type="Text" class="cred" placeholder="Province">
         <input id="postal" type="Text" class="cred" placeholder="Postal Code">       
       </div>
-      <div id="hidden"></div>
     <?php } ?>
   </body>
 </html>
