@@ -1,5 +1,5 @@
 <?php
-	include 'util.php';
+	include '../shared/util.php';
 	if(ISSET($_GET['query'])) {
 	 	$query = s_dec($_GET['query']);
 
