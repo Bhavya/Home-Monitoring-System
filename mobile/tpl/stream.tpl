@@ -16,7 +16,7 @@
         You don't have any events yet. Don't worry, they'll come soon!
         <?php } ?>
     </div>
-    <div data-theme="a" data-role="footer">
+    <div data-theme="a" data-role="footer" data-position="fixed">
         <h3>HOMOS Home Monitoring System</h3>
     </div>
 </div>

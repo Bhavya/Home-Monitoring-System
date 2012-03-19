@@ -17,7 +17,7 @@
         </div>
         </form>
     </div>
-    <div data-theme="a" data-role="footer">
+    <div data-theme="a" data-role="footer" data-position="fixed">
         <h3>HOMOS Home Monitoring System</h3>
     </div>
 </div>
