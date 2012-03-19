@@ -49,7 +49,7 @@
 
 	function validateUser() {
 		unsetEverything();
-		
+
 		$username = $_POST['username'];
 		$password = md5($_POST['password']);
 
@@ -73,12 +73,14 @@
 
 	function renderHead(){ ?>
 		<title> HOMOS - The Comprehensive Home Monitoring System </title>
+		<script type="text/javascript" src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=AIzaSyDs0Ya39g1PSVcDw4haT-R1Y638SCYbbR4"></script>
 	    <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
 	    <link type="text/css" href="css/style.css" rel="stylesheet" />
 	    <link type="text/css" href="css/ui-lightness/Aristo.css" rel="stylesheet" />
 	    <script type="text/javascript" src="js/jquery.min.js"></script>
 	  	<script type="text/javascript" src="js/jquery-ui.min.js"></script>
 	  	<script type="text/javascript" src="js/jquery.tools.min.js"></script>
+	  	<script type="text/javascript" src="js/jquery.gmap.min.js"></script>
 	<?php
 	}
 

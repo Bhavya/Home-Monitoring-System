@@ -12,7 +12,13 @@
     <script type="text/javascript">
   		$(document).ready(function() {		
         $('button').button();
+        $( "#radio" ).buttonset();
         //$('[placeholder]').defaultValue();
+        $('#map').gMap({ markers: [{ latitude: 43.469787,
+                              longitude: -80.540827,
+                              html: "Tettnang, Germany",
+                              popup: false }],
+                  zoom: 16 });
   	  });
   	 </script>
   </head>
@@ -35,7 +41,7 @@
     			<tr>
     				<td> <img src="img/door.png"> <br/> Doors and Windows</td>
     				<td> <img src="img/motion.png"> <br/> Motion </td>
-    				<td> <img src="img/floodlight.png"> <br/> FLoodlights</td>
+    				<td> <img src="img/floodlight.png"> <br/> Floodlights</td>
     			</tr>
     		</table >
     		Family Monitoring <hr/>
@@ -57,6 +63,16 @@
     	</div>
     	<div class="welcome">
     		Welcome, <?php echo $firstname;?>!
+    		<div class="general_info">
+	    		<div id="map"></div>
+	    		<div class="info">
+	    			Address
+		    		<div id="radio">
+						<input type="radio" id="radio1" name="radio" checked="checked" /><label for="radio1">Enabled</label>
+						<input type="radio" id="radio2" name="radio" /><label for="radio2">Disabled</label>
+					</div>
+				</div>
+			</div>
     	</div>
     	<div class="updates">
     		<?php 
