@@ -55,7 +55,10 @@
 
 	function enableSystem($house_id, $state){
 		$sql = "UPDATE household_data SET state='$state' WHERE house_id='$house_id';";
-		$link = mysql_query($sql);	   
+		$link = mysql_query($sql);	  
+		if (!$link) {
+		    die('<h2>Whoops!</h2> Something went wrong. ' . mysql_error());
+		}
 	}
 
 	function validateUser() {
@@ -168,5 +171,28 @@
 			$s[$i] = chr($s[$i]);
 		}
 		return implode('', $s);
+	}
+
+	function renderDoorData($house_id){
+		
+	}
+
+	function renderMotionData($house_id){
+
+	}
+	function renderFloodlightData($house_id){
+
+	}
+	function renderCameraData($house_id){
+
+	} 
+	function renderLightsData($house_id){
+
+	}
+	function renderTemperatureData($house_id){
+
+	}
+	function renderPowerData($house_id){
+
 	}
 ?>
