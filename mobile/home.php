@@ -10,7 +10,7 @@ if (empty($_SESSION['house_id'])) {
     die('You have no house.');
 }
 
-require_once 'util.php';
+require_once '../shared/util.php';
 db_connect();
 
 $result = mysql_query("SELECT * FROM update_spam WHERE house_id='" . $_SESSION['house_id'] . "'") or die(mysql_error());  

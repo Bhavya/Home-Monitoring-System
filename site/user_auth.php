@@ -1,5 +1,5 @@
 <?php
- 	include 'util.php';
+ 	include '../shared/util.php';
  	if(!get_session('loggedin') || !get_session('password')){
  		header('Location: index.php');
  	}

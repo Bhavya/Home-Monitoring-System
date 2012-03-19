@@ -1,5 +1,5 @@
 <?php
-  include 'util.php';
+  include '../shared/util.php';
   $loginheader = "Login";
   $loginmsg = "";
   if(ISSET($_GET['login'])){
