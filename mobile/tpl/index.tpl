@@ -1,12 +1,12 @@
 <?php include 'header.tpl'; ?>
-<?php if ($loginmsg) { ?>
-<?php echo $loginmsg; ?>
-<?php } ?>
 <div data-role="page" id="login">
     <div data-role="header">
         <h3>Login</h3>
     </div>
     <div data-role="content">
+        <?php if ($loginmsg) { ?>
+        <?php echo $loginmsg; ?>
+        <?php } ?>
         <form action="index.php?login=1" method="post">
         <div data-role="fieldcontain">
             <fieldset data-role="controlgroup">
@@ -17,7 +17,7 @@
         </div>
         </form>
     </div>
-    <div data-theme="a" data-role="footer">
+    <div data-theme="a" data-role="footer" data-position="fixed">
         <h3>HOMOS Home Monitoring System</h3>
     </div>
 </div>
