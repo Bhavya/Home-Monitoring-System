@@ -86,8 +86,9 @@
           	$place = $_GET['place'];
           	$state = "off";
           	if($_GET['state']==1) $state ="on";
-          	insertLightsData($house_id, $state, fetchDeviceId($house_id, $place, $sensor));
-            registerLoggedEvent($house_id, date("F j, Y, g:i a"), "$place Light $state.");
+          	registerLoggedEvent($house_id, date("F j, Y, g:i a"), "$place Light $state.");
+          	$device_id = fetchDeviceId($house_id, $place, "lights");
+          	insertLightsData($house_id, $_GET['state'], $device_id);
             break;
           case "temperature":
           	renderTemperatureData($house_id);

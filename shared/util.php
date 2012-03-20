@@ -194,13 +194,13 @@
 		$lights = new LightsRecord();
 		$allLights = $lights->load($house_id);
 		foreach ($allLights as $singleLight) {
-			echo $singleLight->getDevice();
+			echo $singleLight->getDevice()."\n";
 		}
 	}
 
 	function insertLightsData($house_id, $state, $deviceId){
 		$lights = new LightsRecord();
-		$allLights = $lights->setState($state, $deviceId, $house_id);
+		$allLights = $lights->setState($state, $deviceId, $house_id, date("F j, Y, g:i a"));
 	}
 
 	function renderTemperatureData($house_id){
@@ -214,9 +214,9 @@
 		$result = mysql_query("SELECT * FROM device_info WHERE house_id='$house_id' AND room='$place'") or die(mysql_error());  
 		$row = mysql_fetch_array( $result );
 		$device_id = $row['device_id'];
-		if(!$result) {
-			$device_id = rand();
-			mysql_query("INSERT INTO device_info (device_id, device_type, house_id, room) VALUES ('$device_id', '$type', $house_id', '$place')") or die(mysql_error());
+		if(mysql_num_rows($result) < 1) {
+			$device_id = rand(2000,10000);
+			mysql_query("INSERT INTO device_info (device_id, device_type, house_id, room) VALUES ('$device_id', '$type', '$house_id', '$place')") or die(mysql_error());
 		}
 		return $device_id;
 	}

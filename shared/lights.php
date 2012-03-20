@@ -17,7 +17,7 @@ class LightsRecord {
         return $this->_state;
     }
 
-    static public function setState($newState, $deviceId, $houseId) {
+    static public function setState($newState, $deviceId, $houseId, $timestamp) {
         mysql_query("INSERT INTO lights_data SET house_id = '". $houseId ."', device_id = '". $deviceId . "', state = '". $newState . "', timestamp = '". $timestamp . "'") or die(mysql_error());
     }
 
