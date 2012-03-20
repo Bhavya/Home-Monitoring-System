@@ -188,6 +188,10 @@ input.warning{
   border: 2px solid #e65915;
 }
 
+tr.warning {
+  background: #FFCC99;
+}
+
 img.logo{
   margin-top: 75px;
 }

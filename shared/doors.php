@@ -12,11 +12,7 @@ class DoorsRecord {
         return $this->_timestamp;
     }
 
-    public function getState() {
-        return $this->_state;
-    }
-
-    static public function setState($newState, $deviceId, $houseId, $timestamp) {
+    static public function setState($deviceId, $houseId, $timestamp) {
         mysql_query("INSERT INTO doors_data SET house_id = '". $houseId ."', device_id = '". $deviceId . "', timestamp = '". $timestamp . "'") or die(mysql_error());
     }
 
@@ -26,13 +22,12 @@ class DoorsRecord {
         $records = array();
 
         while ($row = mysql_fetch_array($result)) {
-            $lights = new FloodlightsRecord();
-            $lights->_houseId = $houseId;
-            $lights->_deviceId = $row['device_id'];
-            $lights->_timestamp = $row['timestamp'];
-            $lights->_state = $row['state'];
+            $doors = new DoorsRecord();
+            $doors->_houseId = $houseId;
+            $doors->_deviceId = $row['device_id'];
+            $doors->_timestamp = $row['timestamp'];
 
-            $records[] = $lights;
+            $records[] = $doors;
        }
 
         return $records;

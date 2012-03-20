@@ -175,7 +175,7 @@ namespace WindowsFormsApplication1
         {
             if (systemEnable)
             {
-                enableWebRequest("type=test&id=" + houseID.Text);
+                enableWebRequest("update=door&place=Garage&id=" + houseID.Text);
             }
             else
             {

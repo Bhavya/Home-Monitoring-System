@@ -71,7 +71,7 @@
             $place = $_GET['place'];
             registerLoggedEvent($house_id, date("F j, Y, g:i a"), "$place Door unlocked.");
           	$device_id = fetchDeviceId($house_id, $place, "door");
-          	//insertDoorData($house_id, $_GET['state'], $device_id);
+          	insertDoorData($house_id, $device_id);
             break;
           case "motion":
             registerLoggedEvent($house_id, date("F j, Y, g:i a"), "Motion detected outside house. Security alerted.");

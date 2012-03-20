@@ -3,6 +3,7 @@
 	include '../shared/house.php';
 	include '../shared/floodlights.php';
 	include '../shared/temperature.php';
+	include '../shared/doors.php';
 
 	function db_connect() {
 		$link = mysql_connect('localhost', 'karmabub_homos', 'homos');
@@ -111,9 +112,12 @@
 		}
 	}
 
-	function renderLoggedEvent($timestamp, $event) { ?>
+	function renderLoggedEvent($timestamp, $event) { 
+		$class = null;
+		if(strlen(strstr($event,'Motion'))>0) { $class="warning"; }
+		?>
 		<table class="event">
-			<tr>
+			<tr class="<?php echo $class;?>">
 				<td class="timestamp">
 					<?php echo $timestamp;?>
 				</td>
@@ -181,6 +185,12 @@
 	}
 
 	function renderDoorData($house_id){
+		echo "<h2>Doors and Windows</h2>";
+		$door = new DoorsRecord();
+		$allDoors = $door->load($house_id);
+		foreach ($allDoors as $singleDoor) {
+			formatSensorData($singleDoor->getTimeStamp(), fetchRoomByDeviceID($singleDoor->getDevice())." Door", "2");
+		}
 
 	}
 
@@ -222,21 +232,26 @@
 				<td class="room">
 					<?php echo $room;?> 
 				<td>
-					<?php if($state==1){echo "On";}else{echo "Off";}?> <span style="float:right">x</span>
+					<?php if($state==1){echo "On";}elseif($state==2){echo "Unlocked";}else{echo "Off";}?> <span style="float:right">x</span>
 				</td>
 				</td>
 			</tr>
 		</table>
 	<?php }
 
-	function insertLightsData($house_id, $state, $deviceId){
+	function insertLightsData($house_id, $state, $device_id){
 		$lights = new LightsRecord();
-		$allLights = $lights->setState($state, $deviceId, $house_id, date("F j, Y, g:i a"));
+		$lights->setState($state, $deviceId, $house_id, date("F j, Y, g:i a"));
 	}
 
-	function insertFloodlightData($house_id, $state, $deviceId){
+	function insertFloodlightData($house_id, $state, $device_id){
 		$lights = new FloodlightsRecord();
-		$allLights = $lights->setState("1", $deviceId, $house_id, date("F j, Y, g:i a"));
+		$lights->setState("1", $device_id, $house_id, date("F j, Y, g:i a"));
+	}
+
+	function insertDoorData($house_id, $device_id){
+		$door = new DoorsRecord();
+		$door->setState($device_id, $house_id, date("F j, Y, g:i a"));
 	}
 
 	function renderTemperatureData($house_id){
