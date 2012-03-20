@@ -22,14 +22,19 @@ class TemperatureRecord {
     }
 
     static public function load($houseId) {
-        $result = mysql_query("SELECT * FROM temperature_data WHERE house_id = '". $houseId ."'") or die(mysql_error());
+        $result = mysql_query("SELECT * FROM temperature_data LEFT OUTER JOIN using device_id WHERE temperature_data.house_id = '". $houseId ."'") or die(mysql_error());
 
         $records = array();
 
         while ($row = mysql_fetch_array($result)) {
             $temp = new TemperatureRecord();
             $temp->_houseId = $houseId;
-            $temp->_deviceId = $row['device_id'];
+
+            if (isset($row['room'])) {
+                $temp->_deviceId = $row['room'];
+            } else {
+                $temp->_deviceId = $row['device_id'];
+            }
             $temp->_timestamp = $row['timestamp'];
             $temp->_temp = $row['temperature'];
 

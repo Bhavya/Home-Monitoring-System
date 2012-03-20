@@ -26,7 +26,7 @@ class DoorsRecord {
         $records = array();
 
         while ($row = mysql_fetch_array($result)) {
-            $lights = new FloodlightsRecord();
+            $lights = new DoorsRecord();
             $lights->_houseId = $houseId;
             $lights->_deviceId = $row['device_id'];
             $lights->_timestamp = $row['timestamp'];

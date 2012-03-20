@@ -262,4 +262,8 @@
 		$row = mysql_fetch_array( $result );
 		return $row['room'];
 	}
+
+    function getCurrentTimestamp() {
+        return date("F j, Y, g:i a");
+    }
 ?>

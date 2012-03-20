@@ -17,19 +17,25 @@ class FloodlightsRecord {
         return $this->_state;
     }
 
-    static public function setState($newState, $deviceId, $houseId, $timestamp) {
+    static public function setState($newState, $deviceId, $houseId) {
+        $timestamp = getCurrentTimestamp();
         mysql_query("INSERT INTO floodlights_data SET house_id = '". $houseId ."', device_id = '". $deviceId . "', state = '". $newState . "', timestamp = '". $timestamp . "'") or die(mysql_error());
     }
 
     static public function load($houseId) {
-        $result = mysql_query("SELECT * FROM floodlights_data WHERE house_id = '". $houseId ."'") or die(mysql_error());
+        $result = mysql_query("SELECT * FROM floodlights_data LEFT OUTER JOIN device_info USING (device_id) WHERE floodlights_data.house_id = '". $houseId ."'" ) or die(mysql_error());
 
         $records = array();
 
         while ($row = mysql_fetch_array($result)) {
             $lights = new FloodlightsRecord();
             $lights->_houseId = $houseId;
-            $lights->_deviceId = $row['device_id'];
+
+            if (isset($row['room'])) {
+                $lights->_deviceId = $row['room'];
+            } else {
+                $lights->_deviceId = $row['device_id'];
+            }
             $lights->_timestamp = $row['timestamp'];
             $lights->_state = $row['state'];
 
