@@ -33,11 +33,13 @@ namespace WindowsFormsApplication1
             {
                 btnLightsKitchen.BackColor = System.Drawing.Color.Yellow;
                 btnLightsKitchen.Text = "Lights (on)";
+                enableWebRequest("update=lights&place=Kitchen&state=1&id=" + houseID.Text);
             }
             else
             {
                 btnLightsKitchen.BackColor = SystemColors.Control;
                 btnLightsKitchen.Text = "Lights";
+                enableWebRequest("update=lights&place=Kitchen&state=0&id=" + houseID.Text);
             }
             lightsKitchen = !lightsKitchen;
         }
@@ -48,11 +50,13 @@ namespace WindowsFormsApplication1
             {
                 btnLightsLivingroom.BackColor = System.Drawing.Color.Yellow;
                 btnLightsLivingroom.Text = "Lights (on)";
+                enableWebRequest("update=lights&place=Livingroom&state=1&id=" + houseID.Text);
             }
             else
             {
                 btnLightsLivingroom.BackColor = SystemColors.Control;
                 btnLightsLivingroom.Text = "Lights";
+                enableWebRequest("update=lights&place=Livingroom&state=0&id=" + houseID.Text);
             }
             lightsLivingroom = !lightsLivingroom;
         }
@@ -63,11 +67,13 @@ namespace WindowsFormsApplication1
             {
                 btnLightsStudy.BackColor = System.Drawing.Color.Yellow;
                 btnLightsStudy.Text = "Lights (on)";
+                enableWebRequest("update=lights&place=Study&state=1&id=" + houseID.Text);
             }
             else
             {
                 btnLightsStudy.BackColor = SystemColors.Control;
                 btnLightsStudy.Text = "Lights";
+                enableWebRequest("update=lights&place=Study&state=0&id=" + houseID.Text);
             }
             lightsStudy = !lightsStudy;
         }
@@ -94,11 +100,13 @@ namespace WindowsFormsApplication1
             {
                 btnBedroom.BackColor = System.Drawing.Color.Yellow;
                 btnBedroom.Text = "Lights (on)";
+                enableWebRequest("update=lights&place=Bedroom&state=1&id=" + houseID.Text);
             }
             else
             {
                 btnBedroom.BackColor = SystemColors.Control;
                 btnBedroom.Text = "Lights";
+                enableWebRequest("update=lights&place=Bedroom&state=0&id=" + houseID.Text);
             }
             lightsBedroom = !lightsBedroom;
         }
@@ -109,11 +117,13 @@ namespace WindowsFormsApplication1
             {
                 btnGuestroom.BackColor = System.Drawing.Color.Yellow;
                 btnGuestroom.Text = "Lights (on)";
+                enableWebRequest("update=lights&place=Guestroom&state=1&id=" + houseID.Text);
             }
             else
             {
                 btnGuestroom.BackColor = SystemColors.Control;
                 btnGuestroom.Text = "Lights";
+                enableWebRequest("update=lights&place=Guestroom&state=0&id=" + houseID.Text);
             }
             lightsGuestroom = !lightsGuestroom;
         }

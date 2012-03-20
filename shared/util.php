@@ -1,4 +1,8 @@
 <?php
+	include '../shared/lights.php';
+	include '../shared/house.php';
+	include '../shared/floodlights.php';
+	include '../shared/temperature.php';
 
 	function db_connect() {
 		$link = mysql_connect('localhost', 'karmabub_homos', 'homos');
@@ -174,7 +178,7 @@
 	}
 
 	function renderDoorData($house_id){
-		
+
 	}
 
 	function renderMotionData($house_id){
@@ -187,12 +191,33 @@
 
 	} 
 	function renderLightsData($house_id){
-
+		$lights = new LightsRecord();
+		$allLights = $lights->load($house_id);
+		foreach ($allLights as $singleLight) {
+			echo $singleLight->getDevice();
+		}
 	}
+
+	function insertLightsData($house_id, $state, $deviceId){
+		$lights = new LightsRecord();
+		$allLights = $lights->setState($state, $deviceId, $house_id);
+	}
+
 	function renderTemperatureData($house_id){
 
 	}
 	function renderPowerData($house_id){
 
+	}
+
+	function fetchDeviceId($house_id, $place, $type) {
+		$result = mysql_query("SELECT * FROM device_info WHERE house_id='$house_id' AND room='$place'") or die(mysql_error());  
+		$row = mysql_fetch_array( $result );
+		$device_id = $row['device_id'];
+		if(!$result) {
+			$device_id = rand();
+			mysql_query("INSERT INTO device_info (device_id, device_type, house_id, room) VALUES ('$device_id', '$type', $house_id', '$place')") or die(mysql_error());
+		}
+		return $device_id;
 	}
 ?>

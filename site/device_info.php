@@ -24,7 +24,7 @@
           $.ajaxSetup ({  
             cache: false  
           }); 
-          var ajax_load = "<CENTER>Please wait while your feed is being generated.<br /><img src='img/load.gif' alt='loading...' /></CENTER>";
+          var ajax_load = "<CENTER>Please wait while your data is being fetched.<br /><img src='img/load.gif' alt='loading...' /></CENTER>";
           <?php
             $query = "SELECT * FROM update_spam WHERE house_id='$house_id'";
             $query = s_enc($query);

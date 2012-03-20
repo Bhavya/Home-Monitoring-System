@@ -33,16 +33,16 @@
             this.houseIDLabel = new System.Windows.Forms.Label();
             this.btnSystemEnable = new System.Windows.Forms.Button();
             this.outside = new System.Windows.Forms.GroupBox();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnGarageDoor = new System.Windows.Forms.Button();
             this.btnFloodlights = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnKitchenDoor = new System.Windows.Forms.Button();
             this.btnLightsKitchen = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnFrontDoor = new System.Windows.Forms.Button();
             this.btnLightsLivingroom = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnStudyDoor = new System.Windows.Forms.Button();
             this.btnLightsStudy = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.button4 = new System.Windows.Forms.Button();
@@ -95,7 +95,7 @@
             // 
             // outside
             // 
-            this.outside.Controls.Add(this.button6);
+            this.outside.Controls.Add(this.btnGarageDoor);
             this.outside.Controls.Add(this.btnFloodlights);
             this.outside.Location = new System.Drawing.Point(15, 49);
             this.outside.Name = "outside";
@@ -104,15 +104,15 @@
             this.outside.TabStop = false;
             this.outside.Text = "Outside";
             // 
-            // button6
+            // btnGarageDoor
             // 
-            this.button6.BackColor = System.Drawing.SystemColors.Control;
-            this.button6.Location = new System.Drawing.Point(150, 19);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(123, 40);
-            this.button6.TabIndex = 10;
-            this.button6.Text = "Lights";
-            this.button6.UseVisualStyleBackColor = false;
+            this.btnGarageDoor.BackColor = System.Drawing.SystemColors.Control;
+            this.btnGarageDoor.Location = new System.Drawing.Point(150, 19);
+            this.btnGarageDoor.Name = "btnGarageDoor";
+            this.btnGarageDoor.Size = new System.Drawing.Size(123, 40);
+            this.btnGarageDoor.TabIndex = 10;
+            this.btnGarageDoor.Text = "Garage Door";
+            this.btnGarageDoor.UseVisualStyleBackColor = false;
             // 
             // btnFloodlights
             // 
@@ -127,7 +127,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.btnKitchenDoor);
             this.groupBox2.Controls.Add(this.btnLightsKitchen);
             this.groupBox2.Location = new System.Drawing.Point(15, 120);
             this.groupBox2.Name = "groupBox2";
@@ -136,15 +136,15 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Kitchen";
             // 
-            // button1
+            // btnKitchenDoor
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(21, 65);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(123, 40);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Lights";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnKitchenDoor.BackColor = System.Drawing.SystemColors.Control;
+            this.btnKitchenDoor.Location = new System.Drawing.Point(21, 65);
+            this.btnKitchenDoor.Name = "btnKitchenDoor";
+            this.btnKitchenDoor.Size = new System.Drawing.Size(123, 40);
+            this.btnKitchenDoor.TabIndex = 10;
+            this.btnKitchenDoor.Text = "Back Door";
+            this.btnKitchenDoor.UseVisualStyleBackColor = false;
             // 
             // btnLightsKitchen
             // 
@@ -159,7 +159,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.button3);
+            this.groupBox3.Controls.Add(this.btnFrontDoor);
             this.groupBox3.Controls.Add(this.btnLightsLivingroom);
             this.groupBox3.Location = new System.Drawing.Point(188, 120);
             this.groupBox3.Name = "groupBox3";
@@ -168,15 +168,15 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Livingroom";
             // 
-            // button3
+            // btnFrontDoor
             // 
-            this.button3.BackColor = System.Drawing.SystemColors.Control;
-            this.button3.Location = new System.Drawing.Point(17, 65);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(123, 40);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "Lights";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnFrontDoor.BackColor = System.Drawing.SystemColors.Control;
+            this.btnFrontDoor.Location = new System.Drawing.Point(17, 65);
+            this.btnFrontDoor.Name = "btnFrontDoor";
+            this.btnFrontDoor.Size = new System.Drawing.Size(123, 40);
+            this.btnFrontDoor.TabIndex = 10;
+            this.btnFrontDoor.Text = "Front Door";
+            this.btnFrontDoor.UseVisualStyleBackColor = false;
             // 
             // btnLightsLivingroom
             // 
@@ -191,7 +191,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.btnStudyDoor);
             this.groupBox1.Controls.Add(this.btnLightsStudy);
             this.groupBox1.Location = new System.Drawing.Point(15, 248);
             this.groupBox1.Name = "groupBox1";
@@ -200,15 +200,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Study";
             // 
-            // button2
+            // btnStudyDoor
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.Control;
-            this.button2.Location = new System.Drawing.Point(21, 82);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(123, 40);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "Lights";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnStudyDoor.BackColor = System.Drawing.SystemColors.Control;
+            this.btnStudyDoor.Location = new System.Drawing.Point(21, 82);
+            this.btnStudyDoor.Name = "btnStudyDoor";
+            this.btnStudyDoor.Size = new System.Drawing.Size(123, 40);
+            this.btnStudyDoor.TabIndex = 11;
+            this.btnStudyDoor.Text = "Door";
+            this.btnStudyDoor.UseVisualStyleBackColor = false;
             // 
             // btnLightsStudy
             // 
@@ -342,10 +342,10 @@
         private System.Windows.Forms.Button btnBedroom;
         private System.Windows.Forms.Button btnGuestroom;
         private System.Windows.Forms.Button btnFloodlights;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnGarageDoor;
+        private System.Windows.Forms.Button btnKitchenDoor;
+        private System.Windows.Forms.Button btnFrontDoor;
+        private System.Windows.Forms.Button btnStudyDoor;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button test;
