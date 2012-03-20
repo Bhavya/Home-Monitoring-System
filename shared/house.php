@@ -13,6 +13,10 @@ class HouseholdInfo {
         return $this->_address;
     }
 
+    public static function updateHouseInfo($phone, $address, $houseId) {
+        mysql_query("UPDATE household_data SET phone = '". $phone ."', address = '". $address ."' WHERE house_id = '". $houseId ."'") or die(mysql_error());
+    }
+
     static public function load($houseId) {
         $result = mysql_query("SELECT * FROM household_data WHERE house_id = '". $houseId ."'") or die(mysql_error());
 

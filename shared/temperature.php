@@ -17,6 +17,10 @@ class TemperatureRecord {
         return $this->_temp;
     }
 
+    static public function setTemperature($newTemp, $deviceId, $houseId) {
+        mysql_query("INSERT INTO temperature_data SET house_id = '". $houseId ."', device_id = '". $deviceId . "', temperature = '". $newTemp. "', timestamp = '". $timestamp . "'") or die(mysql_error());
+    }
+
     static public function load($houseId) {
         $result = mysql_query("SELECT * FROM temperature_data WHERE house_id = '". $houseId ."'") or die(mysql_error());
 

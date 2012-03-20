@@ -11,8 +11,8 @@
             <?php foreach($lights as $light) { ?>
             <li>
                 <?php echo $light->getTimestamp(); ?> -
-                Device: <?php echo $lights->getDevice(); ?> -
-                State: <?php echo $lights->getState() ? 'On' : 'Off'; ?>
+                Device: <?php echo $light->getDevice(); ?> -
+                State: <?php echo $light->getState() ? 'On' : 'Off'; ?>
             </li>
             <?php } ?>
         </ul>

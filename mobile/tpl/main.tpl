@@ -8,6 +8,9 @@
         <a data-role="button" data-transition="slide" href="stream.php">
             Activity Stream
         </a>
+        <a data-role="button" data-transition="slide" href="temperature.php">
+           Temperature
+        </a>
         <a data-role="button" data-transition="slide" href="lights.php">
            Lights
         </a>
