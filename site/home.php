@@ -29,13 +29,6 @@
             $query = "SELECT * FROM update_spam WHERE house_id='$house_id'";
             $query = s_enc($query);
           ?>
-          var loadUrl = "ajax.php?type=feed&id=<?php echo $house_id;?>";  
-          $(".updates").html(ajax_load);
-          setInterval(function(){
-            $(".updates").ready(function(){  
-              $(".updates").load(loadUrl);  
-            });
-          }, 3000);       
 
           $( "#dialog:ui-dialog" ).dialog( "destroy" );
   
@@ -73,12 +66,36 @@
               var loadUrl = "ajax.php?type=onoff&state=1&id=<?php echo $house_id;?>";
               $("#dialog-modal-confirm" ).dialog("open");
               $("#hidden").load(loadUrl);
+              $(".updates").show();
+              showUpdates(true);
           });
           $("#radio2").click(function() {
               var loadUrl = "ajax.php?type=onoff&state=0&id=<?php echo $house_id;?>";
               $("#dialog-modal-confirm").dialog("open");
               $("#hidden").load(loadUrl);
+              showUpdates(false);
           });
+
+          if($("#radio1").attr("checked")) {
+            showUpdates(true);
+          } else {
+            var msg = "<CENTER>Please enable your system to see updates.</CENTER>"
+            $(".updates").html(msg);
+          }
+
+          function showUpdates(sysEnabled) {
+            if(sysEnabled) {
+              var loadUrl = "ajax.php?type=feed&id=<?php echo $house_id;?>";  
+              $(".updates").html(ajax_load);
+              setInterval(function(){
+                $(".updates").ready(function(){  
+                  $(".updates").load(loadUrl);
+                });
+              }, 3000); 
+            } else {
+              $(".updates").hide();
+            }
+          }
   	  });
   	 </script>
   </head>
