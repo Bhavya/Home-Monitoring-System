@@ -4,7 +4,7 @@
         <h3>Menu</h3>
     </div>
     <div data-role="content">
-        You are now logged in.
+        Hi <?php echo $_SESSION['firstname'] ?>! Welcome to HOMOS.
         <a data-role="button" data-transition="slide" href="stream.php">
             Activity Stream
         </a>
