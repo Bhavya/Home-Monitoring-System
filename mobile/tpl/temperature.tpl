@@ -12,7 +12,7 @@
             <li>
                 <?php echo $temperature->getTimestamp(); ?> -
                 Device: <?php echo $temperature->getDevice(); ?> -
-                Temperature: <?php echo $temperature->getTemperature() ? 'On' : 'Off'; ?>
+                Temperature: <?php echo $temperature->getTemperature(); ?>
             </li>
             <?php } ?>
         </ul>

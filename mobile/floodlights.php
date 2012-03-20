@@ -12,9 +12,19 @@ if (empty($_SESSION['house_id'])) {
 
 require_once '../shared/util.php';
 require_once '../shared/floodlights.php';
+require_once '../shared/devices.php';
 db_connect();
 
-$lights = FloodlightsRecord::load($_SESSION['house_id']);
+if (isset($_POST['lightsOn'])) {
+    FloodlightsRecord::setState(true, $_POST['room'], $_SESSION['house_id']);
+}
+if (isset($_POST['lightsOff'])) {
+    FloodlightsRecord::setState(false, $_POST['room'], $_SESSION['house_id']);
+}
+
+$devices = Device::load($_SESSION['house_id'], Device::FLOODLIGHT_DEVICE);
+
+$floodlights = FloodlightsRecord::load($_SESSION['house_id']);
 
 require 'tpl/floodlights.tpl';
 ?>
