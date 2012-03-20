@@ -29,6 +29,9 @@
 		        $state = $_GET['state'];
 		        enableSystem($house_id, $state);
 		        break;
+		    case "test":
+		    	registerLoggedEvent($house_id, date("F j, Y, g:i a"), 'Garage Door Unlocked');
+		    	break;
 		}
 	}
 
@@ -44,6 +47,34 @@
             break;
           case "floodlight":
           	renderFloodlightData($house_id);
+            break;
+          case "camera":
+          	renderCameraData($house_id);
+            break;
+          case "lights":
+          	renderLightsData($house_id);
+            break;
+          case "temperature":
+          	renderTemperatureData($house_id);
+            break;
+          case "power":
+          	renderPowerData($house_id);
+            break;
+        }
+    }
+
+    if(ISSET($_GET['update'])) {
+		$sensor = $_GET['update'];
+		$house_id = $_GET['id'];
+ 		switch($sensor) {
+          case "door":
+            renderDoorData($house_id);
+            break;
+          case "motion":
+          	renderMotionData($house_id);
+            break;
+          case "floodlight":
+          	registerLoggedEvent($house_id, date("F j, Y, g:i a"), 'Floodlight engaged.');
             break;
           case "camera":
           	renderCameraData($house_id);

@@ -78,6 +78,7 @@ namespace WindowsFormsApplication1
             {
                 btnFloodlights.BackColor = System.Drawing.Color.Yellow;
                 btnFloodlights.Text = "Floodlights (on)";
+                enableWebRequest("update=floodlight&id=" + houseID.Text);
             }
             else
             {
@@ -157,6 +158,18 @@ namespace WindowsFormsApplication1
                     btnSystemEnable.Text = "Enable";
                 }
                 systemEnable = !systemEnable;
+            }
+        }
+
+        private void test_Click(object sender, EventArgs e)
+        {
+            if (systemEnable)
+            {
+                enableWebRequest("type=test&id=" + houseID.Text);
+            }
+            else
+            {
+                MessageBox.Show("Please ensure the system is enabled");
             }
         }
     }

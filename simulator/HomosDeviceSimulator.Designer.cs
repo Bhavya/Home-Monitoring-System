@@ -50,6 +50,7 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.button5 = new System.Windows.Forms.Button();
             this.btnGuestroom = new System.Windows.Forms.Button();
+            this.test = new System.Windows.Forms.Button();
             this.outside.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -284,11 +285,22 @@
             this.btnGuestroom.UseVisualStyleBackColor = false;
             this.btnGuestroom.Click += new System.EventHandler(this.btnGuestroom_Click);
             // 
+            // test
+            // 
+            this.test.Location = new System.Drawing.Point(270, 10);
+            this.test.Name = "test";
+            this.test.Size = new System.Drawing.Size(75, 23);
+            this.test.TabIndex = 10;
+            this.test.Text = "Test";
+            this.test.UseVisualStyleBackColor = true;
+            this.test.Click += new System.EventHandler(this.test_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(531, 439);
+            this.Controls.Add(this.test);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox1);
@@ -336,6 +348,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button test;
 
     }
 }
