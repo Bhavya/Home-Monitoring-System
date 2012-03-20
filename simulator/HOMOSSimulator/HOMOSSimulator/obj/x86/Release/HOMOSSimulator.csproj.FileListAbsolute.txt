@@ -1,0 +1,13 @@
+C:\wamp\www\homos\simulator\HOMOSSimulator\HOMOSSimulator\bin\Release\HOMOSSimulator.exe.manifest
+C:\wamp\www\homos\simulator\HOMOSSimulator\HOMOSSimulator\bin\Release\HOMOSSimulator.application
+C:\wamp\www\homos\simulator\HOMOSSimulator\HOMOSSimulator\bin\Release\HOMOSSimulator.exe
+C:\wamp\www\homos\simulator\HOMOSSimulator\HOMOSSimulator\bin\Release\HOMOSSimulator.pdb
+C:\wamp\www\homos\simulator\HOMOSSimulator\HOMOSSimulator\obj\x86\Release\ResolveAssemblyReference.cache
+C:\wamp\www\homos\simulator\HOMOSSimulator\HOMOSSimulator\obj\x86\Release\WindowsFormsApplication1.Form1.resources
+C:\wamp\www\homos\simulator\HOMOSSimulator\HOMOSSimulator\obj\x86\Release\WindowsFormsApplication1.Properties.Resources.resources
+C:\wamp\www\homos\simulator\HOMOSSimulator\HOMOSSimulator\obj\x86\Release\GenerateResource.read.1.tlog
+C:\wamp\www\homos\simulator\HOMOSSimulator\HOMOSSimulator\obj\x86\Release\GenerateResource.write.1.tlog
+C:\wamp\www\homos\simulator\HOMOSSimulator\HOMOSSimulator\obj\x86\Release\HOMOSSimulator.exe.manifest
+C:\wamp\www\homos\simulator\HOMOSSimulator\HOMOSSimulator\obj\x86\Release\HOMOSSimulator.application
+C:\wamp\www\homos\simulator\HOMOSSimulator\HOMOSSimulator\obj\x86\Release\HOMOSSimulator.exe
+C:\wamp\www\homos\simulator\HOMOSSimulator\HOMOSSimulator\obj\x86\Release\HOMOSSimulator.pdb

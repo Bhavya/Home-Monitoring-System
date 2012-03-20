@@ -98,11 +98,24 @@
           	$device_id = fetchDeviceId($house_id, $place, "lights");
           	insertLightsData($house_id, $_GET['state'], $device_id);
             break;
+          case "lowbatt":
+          	$device = $_GET['device'];
+          	$charge_time = rand(30,50);
+          	registerLoggedEvent($house_id, date("F j, Y, g:i a"), "Sensor $device is low on battery and is now connecting to your power grid. Estimated charge time: $charge_time minutes.");
+            break;
+          case "breakin":
+          	registerLoggedEvent($house_id, date("F j, Y, g:i a"), "Break-in attempt through front door. Security alerted.");
+          	$place = "Outdoor Floodlight";
+          	registerLoggedEvent($house_id, date("F j, Y, g:i a"), 'Floodlight engaged.');
+          	$device_id = fetchDeviceId($house_id, $place, "floodlight");
+          	insertFloodlightData($house_id, $device_id);
+            break;
           case "temperature":
-          	renderTemperatureData($house_id);
+          	$temp = $_GET['temp']; 
+          	registerLoggedEvent($house_id, date("F j, Y, g:i a"), "The ambient temperature is $temp degrees Celsius.");          	
             break;
           case "power":
-          	renderPowerData($house_id);
+          	//renderPowerData($house_id);
             break;
         }
     }

@@ -31,7 +31,7 @@
   <body>
     <div class="header">
       <div class="content">
-        <img src="img/logo.png" class="logo">
+        <a href="http://homos.karmabubble.com"><img src="img/logo.png" class="logo"></a>
       </div>
     </div>
     <div class="middle">

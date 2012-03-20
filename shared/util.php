@@ -114,7 +114,7 @@
 
 	function renderLoggedEvent($timestamp, $event) { 
 		$class = null;
-		if(strlen(strstr($event,'Motion'))>0) { $class="warning"; }
+		if(strlen(strstr($event,'Security'))>0) { $class="warning"; }
 		?>
 		<table class="event">
 			<tr class="<?php echo $class;?>">

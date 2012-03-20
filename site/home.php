@@ -102,7 +102,7 @@
   <body>
     <div class="header">
       <div class="content">
-        <img src="img/logo.png" class="logo">
+        <a href="http://homos.karmabubble.com/home.php"><img src="img/logo.png" class="logo"></a>
         <div class="topmenu">
         	<?php echo $firstname." ".$lastname;?> | 
         	<a href="<?php echo $_SERVER['PHP_SELF']."?logout=true"?>">
