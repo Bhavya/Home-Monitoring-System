@@ -21,8 +21,8 @@ a{
 
 a:hover{
   text-decoration: none;
-  font-weight: boldcolor
-  ;: #fff;
+  font-weight: bold;
+  color: #fff;
   padding: 2px;
   border-radius: 2px;
   text-shadow: 0px 1px 1px #444;
@@ -31,6 +31,15 @@ a:hover{
 .spec {
   font-family: 'Arvo', arial, serif;
   font-size: 15px;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: none;
+  color: #555;
+}
+
+.updates h2 {
+  font-family: 'Arvo', arial, serif;
+  font-size: 24px;
   font-style: normal;
   font-weight: normal;
   text-decoration: none;
@@ -270,6 +279,10 @@ table.event td {
 
 table.event .timestamp {
   width: 150px;
+}
+
+td.room {
+  width: 120px;
 }
 
 div.header a{

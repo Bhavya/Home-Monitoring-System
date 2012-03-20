@@ -68,15 +68,23 @@
 		$house_id = $_GET['id'];
  		switch($sensor) {
           case "door":
-            renderDoorData($house_id);
             $place = $_GET['place'];
             registerLoggedEvent($house_id, date("F j, Y, g:i a"), "$place Door unlocked.");
+          	$device_id = fetchDeviceId($house_id, $place, "door");
+          	//insertDoorData($house_id, $_GET['state'], $device_id);
             break;
           case "motion":
             registerLoggedEvent($house_id, date("F j, Y, g:i a"), "Motion detected outside house. Security alerted.");
+            $place = "Outdoor Floodlight";
+          	registerLoggedEvent($house_id, date("F j, Y, g:i a"), 'Floodlight engaged.');
+          	$device_id = fetchDeviceId($house_id, $place, "floodlight");
+          	insertFloodlightData($house_id, $device_id);
             break;
           case "floodlight":
+          	$place = "Outdoor Floodlight";
           	registerLoggedEvent($house_id, date("F j, Y, g:i a"), 'Floodlight engaged.');
+          	$device_id = fetchDeviceId($house_id, $place, "floodlight");
+          	insertFloodlightData($house_id, $device_id);
             break;
           case "camera":
           	$place = $_GET['place'];

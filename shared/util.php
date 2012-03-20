@@ -131,8 +131,11 @@
 			$results[] = $row;
 		}
 		$results = array_reverse($results);
+		$num = 0;
 		foreach ($results as $result) {
 			renderLoggedEvent($result[1], $result[2]);
+			$num++;
+			if($num == 10) break;
 		}
 	}
 
@@ -182,25 +185,58 @@
 	}
 
 	function renderMotionData($house_id){
-
+		echo "<h2>Outdoor Motion Detector</h2>";
+		$floodlights = new FloodlightsRecord();
+		$allLights = $floodlights->load($house_id);
+		foreach ($allLights as $singleLight) {
+			formatSensorData($singleLight->getTimeStamp(), "Motion Detected", $singleLight->getState());
+		}
 	}
 	function renderFloodlightData($house_id){
+		echo "<h2>Floodlights</h2>";
+		$floodlights = new FloodlightsRecord();
+		$allLights = $floodlights->load($house_id);
+		foreach ($allLights as $singleLight) {
+			formatSensorData($singleLight->getTimeStamp(), "Outdoor Floodlight", $singleLight->getState());
+		}
 
 	}
 	function renderCameraData($house_id){
 
 	} 
 	function renderLightsData($house_id){
+		echo "<h2>Lights</h2>";
 		$lights = new LightsRecord();
 		$allLights = $lights->load($house_id);
 		foreach ($allLights as $singleLight) {
-			echo $singleLight->getDevice()."\n";
+			formatSensorData($singleLight->getTimeStamp(), fetchRoomByDeviceID($singleLight->getDevice()), $singleLight->getState());
 		}
 	}
+
+	function formatSensorData($timestamp, $room, $state) {?>
+		<table class="event">
+			<tr>
+				<td class="timestamp">
+					<?php echo $timestamp;?>
+				</td>
+				<td class="room">
+					<?php echo $room;?> 
+				<td>
+					<?php if($state==1){echo "On";}else{echo "Off";}?> <span style="float:right">x</span>
+				</td>
+				</td>
+			</tr>
+		</table>
+	<?php }
 
 	function insertLightsData($house_id, $state, $deviceId){
 		$lights = new LightsRecord();
 		$allLights = $lights->setState($state, $deviceId, $house_id, date("F j, Y, g:i a"));
+	}
+
+	function insertFloodlightData($house_id, $state, $deviceId){
+		$lights = new FloodlightsRecord();
+		$allLights = $lights->setState("1", $deviceId, $house_id, date("F j, Y, g:i a"));
 	}
 
 	function renderTemperatureData($house_id){
@@ -219,5 +255,11 @@
 			mysql_query("INSERT INTO device_info (device_id, device_type, house_id, room) VALUES ('$device_id', '$type', '$house_id', '$place')") or die(mysql_error());
 		}
 		return $device_id;
+	}
+
+	function fetchRoomByDeviceID($device_id) {
+		$result = mysql_query("SELECT * FROM device_info WHERE device_id='$device_id'") or die(mysql_error());  
+		$row = mysql_fetch_array( $result );
+		return $row['room'];
 	}
 ?>

@@ -1,9 +1,8 @@
 <?php
-class FloodlightsRecord {
+class DoorsRecord {
     private $_houseId;
     private $_deviceId;
     private $_timestamp;
-    private $_state;
 
     public function getDevice() {
         return $this->_deviceId;
@@ -18,11 +17,11 @@ class FloodlightsRecord {
     }
 
     static public function setState($newState, $deviceId, $houseId, $timestamp) {
-        mysql_query("INSERT INTO floodlights_data SET house_id = '". $houseId ."', device_id = '". $deviceId . "', state = '". $newState . "', timestamp = '". $timestamp . "'") or die(mysql_error());
+        mysql_query("INSERT INTO doors_data SET house_id = '". $houseId ."', device_id = '". $deviceId . "', timestamp = '". $timestamp . "'") or die(mysql_error());
     }
 
     static public function load($houseId) {
-        $result = mysql_query("SELECT * FROM floodlights_data WHERE house_id = '". $houseId ."'") or die(mysql_error());
+        $result = mysql_query("SELECT * FROM doors_data WHERE house_id = '". $houseId ."'") or die(mysql_error());
 
         $records = array();
 

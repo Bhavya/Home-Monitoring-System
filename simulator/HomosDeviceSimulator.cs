@@ -171,11 +171,83 @@ namespace WindowsFormsApplication1
             }
         }
 
-        private void test_Click(object sender, EventArgs e)
+        private void btnGarageDoor_Click(object sender, EventArgs e)
         {
             if (systemEnable)
             {
                 enableWebRequest("type=test&id=" + houseID.Text);
+            }
+            else
+            {
+                MessageBox.Show("Please ensure the system is enabled");
+            }
+        }
+
+        private void btnMovement_Click(object sender, EventArgs e)
+        {
+            if (systemEnable)
+            {
+                enableWebRequest("update=motion&id=" + houseID.Text);
+            }
+            else
+            {
+                MessageBox.Show("Please ensure the system is enabled");
+            }
+        }
+
+        private void btnKitchenDoor_Click(object sender, EventArgs e)
+        {
+            if (systemEnable)
+            {
+                enableWebRequest("update=door&place=Back&id=" + houseID.Text);
+            }
+            else
+            {
+                MessageBox.Show("Please ensure the system is enabled");
+            }
+        }
+
+        private void btnFrontDoor_Click(object sender, EventArgs e)
+        {
+            if (systemEnable)
+            {
+                enableWebRequest("update=door&place=Front&id=" + houseID.Text);
+            }
+            else
+            {
+                MessageBox.Show("Please ensure the system is enabled");
+            }
+        }
+
+        private void btnStudyDoor_Click(object sender, EventArgs e)
+        {
+            if (systemEnable)
+            {
+                enableWebRequest("update=door&place=Study&id=" + houseID.Text);
+            }
+            else
+            {
+                MessageBox.Show("Please ensure the system is enabled");
+            }
+        }
+
+        private void btnBedroomDoor_Click(object sender, EventArgs e)
+        {
+            if (systemEnable)
+            {
+                enableWebRequest("update=door&place=Bedroom&id=" + houseID.Text);
+            }
+            else
+            {
+                MessageBox.Show("Please ensure the system is enabled");
+            }
+        }
+
+        private void btnGuestDoor_Click(object sender, EventArgs e)
+        {
+            if (systemEnable)
+            {
+                enableWebRequest("update=door&place=Guestroom&id=" + houseID.Text);
             }
             else
             {

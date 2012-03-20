@@ -45,12 +45,12 @@
             this.btnStudyDoor = new System.Windows.Forms.Button();
             this.btnLightsStudy = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnBedroomDoor = new System.Windows.Forms.Button();
             this.btnBedroom = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnGuestDoor = new System.Windows.Forms.Button();
             this.btnGuestroom = new System.Windows.Forms.Button();
-            this.test = new System.Windows.Forms.Button();
+            this.btnMovement = new System.Windows.Forms.Button();
             this.outside.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -95,11 +95,12 @@
             // 
             // outside
             // 
+            this.outside.Controls.Add(this.btnMovement);
             this.outside.Controls.Add(this.btnGarageDoor);
             this.outside.Controls.Add(this.btnFloodlights);
             this.outside.Location = new System.Drawing.Point(15, 49);
             this.outside.Name = "outside";
-            this.outside.Size = new System.Drawing.Size(286, 65);
+            this.outside.Size = new System.Drawing.Size(485, 65);
             this.outside.TabIndex = 4;
             this.outside.TabStop = false;
             this.outside.Text = "Outside";
@@ -113,6 +114,7 @@
             this.btnGarageDoor.TabIndex = 10;
             this.btnGarageDoor.Text = "Garage Door";
             this.btnGarageDoor.UseVisualStyleBackColor = false;
+            this.btnGarageDoor.Click += new System.EventHandler(this.btnGarageDoor_Click);
             // 
             // btnFloodlights
             // 
@@ -145,6 +147,7 @@
             this.btnKitchenDoor.TabIndex = 10;
             this.btnKitchenDoor.Text = "Back Door";
             this.btnKitchenDoor.UseVisualStyleBackColor = false;
+            this.btnKitchenDoor.Click += new System.EventHandler(this.btnKitchenDoor_Click);
             // 
             // btnLightsKitchen
             // 
@@ -177,6 +180,7 @@
             this.btnFrontDoor.TabIndex = 10;
             this.btnFrontDoor.Text = "Front Door";
             this.btnFrontDoor.UseVisualStyleBackColor = false;
+            this.btnFrontDoor.Click += new System.EventHandler(this.btnFrontDoor_Click);
             // 
             // btnLightsLivingroom
             // 
@@ -209,6 +213,7 @@
             this.btnStudyDoor.TabIndex = 11;
             this.btnStudyDoor.Text = "Door";
             this.btnStudyDoor.UseVisualStyleBackColor = false;
+            this.btnStudyDoor.Click += new System.EventHandler(this.btnStudyDoor_Click);
             // 
             // btnLightsStudy
             // 
@@ -223,7 +228,7 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.button4);
+            this.groupBox4.Controls.Add(this.btnBedroomDoor);
             this.groupBox4.Controls.Add(this.btnBedroom);
             this.groupBox4.Location = new System.Drawing.Point(188, 248);
             this.groupBox4.Name = "groupBox4";
@@ -232,15 +237,16 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Bedroom";
             // 
-            // button4
+            // btnBedroomDoor
             // 
-            this.button4.BackColor = System.Drawing.SystemColors.Control;
-            this.button4.Location = new System.Drawing.Point(17, 82);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(123, 40);
-            this.button4.TabIndex = 12;
-            this.button4.Text = "Lights";
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnBedroomDoor.BackColor = System.Drawing.SystemColors.Control;
+            this.btnBedroomDoor.Location = new System.Drawing.Point(17, 82);
+            this.btnBedroomDoor.Name = "btnBedroomDoor";
+            this.btnBedroomDoor.Size = new System.Drawing.Size(123, 40);
+            this.btnBedroomDoor.TabIndex = 12;
+            this.btnBedroomDoor.Text = "Door";
+            this.btnBedroomDoor.UseVisualStyleBackColor = false;
+            this.btnBedroomDoor.Click += new System.EventHandler(this.btnBedroomDoor_Click);
             // 
             // btnBedroom
             // 
@@ -255,7 +261,7 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.button5);
+            this.groupBox5.Controls.Add(this.btnGuestDoor);
             this.groupBox5.Controls.Add(this.btnGuestroom);
             this.groupBox5.Location = new System.Drawing.Point(349, 248);
             this.groupBox5.Name = "groupBox5";
@@ -264,15 +270,16 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Guest Room";
             // 
-            // button5
+            // btnGuestDoor
             // 
-            this.button5.BackColor = System.Drawing.SystemColors.Control;
-            this.button5.Location = new System.Drawing.Point(15, 82);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(123, 40);
-            this.button5.TabIndex = 10;
-            this.button5.Text = "Lights";
-            this.button5.UseVisualStyleBackColor = false;
+            this.btnGuestDoor.BackColor = System.Drawing.SystemColors.Control;
+            this.btnGuestDoor.Location = new System.Drawing.Point(15, 82);
+            this.btnGuestDoor.Name = "btnGuestDoor";
+            this.btnGuestDoor.Size = new System.Drawing.Size(123, 40);
+            this.btnGuestDoor.TabIndex = 10;
+            this.btnGuestDoor.Text = "Door";
+            this.btnGuestDoor.UseVisualStyleBackColor = false;
+            this.btnGuestDoor.Click += new System.EventHandler(this.btnGuestDoor_Click);
             // 
             // btnGuestroom
             // 
@@ -285,22 +292,22 @@
             this.btnGuestroom.UseVisualStyleBackColor = false;
             this.btnGuestroom.Click += new System.EventHandler(this.btnGuestroom_Click);
             // 
-            // test
+            // btnMovement
             // 
-            this.test.Location = new System.Drawing.Point(270, 10);
-            this.test.Name = "test";
-            this.test.Size = new System.Drawing.Size(75, 23);
-            this.test.TabIndex = 10;
-            this.test.Text = "Test";
-            this.test.UseVisualStyleBackColor = true;
-            this.test.Click += new System.EventHandler(this.test_Click);
+            this.btnMovement.BackColor = System.Drawing.SystemColors.Control;
+            this.btnMovement.Location = new System.Drawing.Point(279, 19);
+            this.btnMovement.Name = "btnMovement";
+            this.btnMovement.Size = new System.Drawing.Size(123, 40);
+            this.btnMovement.TabIndex = 11;
+            this.btnMovement.Text = "Simulate Movement";
+            this.btnMovement.UseVisualStyleBackColor = false;
+            this.btnMovement.Click += new System.EventHandler(this.btnMovement_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(531, 439);
-            this.Controls.Add(this.test);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox1);
@@ -346,9 +353,9 @@
         private System.Windows.Forms.Button btnKitchenDoor;
         private System.Windows.Forms.Button btnFrontDoor;
         private System.Windows.Forms.Button btnStudyDoor;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button test;
+        private System.Windows.Forms.Button btnBedroomDoor;
+        private System.Windows.Forms.Button btnGuestDoor;
+        private System.Windows.Forms.Button btnMovement;
 
     }
 }
