@@ -33,17 +33,23 @@
             this.houseIDLabel = new System.Windows.Forms.Label();
             this.btnSystemEnable = new System.Windows.Forms.Button();
             this.outside = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.btnLightsKitchen = new System.Windows.Forms.Button();
-            this.btnLightsLivingroom = new System.Windows.Forms.Button();
-            this.btnLightsStudy = new System.Windows.Forms.Button();
-            this.btnBedroom = new System.Windows.Forms.Button();
-            this.btnGuestroom = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.btnFloodlights = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnLightsKitchen = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.btnLightsLivingroom = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnLightsStudy = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.btnBedroom = new System.Windows.Forms.Button();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.btnGuestroom = new System.Windows.Forms.Button();
             this.outside.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -54,9 +60,9 @@
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 446);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 417);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(836, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(531, 22);
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -84,121 +90,28 @@
             this.btnSystemEnable.TabIndex = 3;
             this.btnSystemEnable.Text = "Enable";
             this.btnSystemEnable.UseVisualStyleBackColor = true;
+            this.btnSystemEnable.Click += new System.EventHandler(this.btnSystemEnable_Click);
             // 
             // outside
             // 
+            this.outside.Controls.Add(this.button6);
             this.outside.Controls.Add(this.btnFloodlights);
             this.outside.Location = new System.Drawing.Point(15, 49);
             this.outside.Name = "outside";
-            this.outside.Size = new System.Drawing.Size(357, 65);
+            this.outside.Size = new System.Drawing.Size(286, 65);
             this.outside.TabIndex = 4;
             this.outside.TabStop = false;
             this.outside.Text = "Outside";
             // 
-            // groupBox2
+            // button6
             // 
-            this.groupBox2.Controls.Add(this.btnLightsKitchen);
-            this.groupBox2.Location = new System.Drawing.Point(15, 120);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(357, 156);
-            this.groupBox2.TabIndex = 5;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Kitchen";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.btnLightsLivingroom);
-            this.groupBox3.Location = new System.Drawing.Point(378, 120);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(447, 156);
-            this.groupBox3.TabIndex = 6;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Livingroom";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.btnLightsStudy);
-            this.groupBox1.Location = new System.Drawing.Point(15, 282);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(357, 156);
-            this.groupBox1.TabIndex = 7;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Study";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.btnBedroom);
-            this.groupBox4.Location = new System.Drawing.Point(378, 282);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(223, 156);
-            this.groupBox4.TabIndex = 8;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Bedroom";
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.btnGuestroom);
-            this.groupBox5.Location = new System.Drawing.Point(607, 282);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(218, 156);
-            this.groupBox5.TabIndex = 9;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Guest Room";
-            // 
-            // btnLightsKitchen
-            // 
-            this.btnLightsKitchen.BackColor = System.Drawing.SystemColors.Control;
-            this.btnLightsKitchen.Location = new System.Drawing.Point(21, 19);
-            this.btnLightsKitchen.Name = "btnLightsKitchen";
-            this.btnLightsKitchen.Size = new System.Drawing.Size(123, 40);
-            this.btnLightsKitchen.TabIndex = 0;
-            this.btnLightsKitchen.Text = "Lights";
-            this.btnLightsKitchen.UseVisualStyleBackColor = false;
-            this.btnLightsKitchen.Click += new System.EventHandler(this.btnLightsKitchen_Click);
-            // 
-            // btnLightsLivingroom
-            // 
-            this.btnLightsLivingroom.BackColor = System.Drawing.SystemColors.Control;
-            this.btnLightsLivingroom.Location = new System.Drawing.Point(17, 19);
-            this.btnLightsLivingroom.Name = "btnLightsLivingroom";
-            this.btnLightsLivingroom.Size = new System.Drawing.Size(123, 40);
-            this.btnLightsLivingroom.TabIndex = 10;
-            this.btnLightsLivingroom.Text = "Lights";
-            this.btnLightsLivingroom.UseVisualStyleBackColor = false;
-            this.btnLightsLivingroom.Click += new System.EventHandler(this.btnLightsLivingroom_Click);
-            // 
-            // btnLightsStudy
-            // 
-            this.btnLightsStudy.BackColor = System.Drawing.SystemColors.Control;
-            this.btnLightsStudy.Location = new System.Drawing.Point(21, 36);
-            this.btnLightsStudy.Name = "btnLightsStudy";
-            this.btnLightsStudy.Size = new System.Drawing.Size(123, 40);
-            this.btnLightsStudy.TabIndex = 11;
-            this.btnLightsStudy.Text = "Lights";
-            this.btnLightsStudy.UseVisualStyleBackColor = false;
-            this.btnLightsStudy.Click += new System.EventHandler(this.btnLightsStudy_Click);
-            // 
-            // btnBedroom
-            // 
-            this.btnBedroom.BackColor = System.Drawing.SystemColors.Control;
-            this.btnBedroom.Location = new System.Drawing.Point(17, 36);
-            this.btnBedroom.Name = "btnBedroom";
-            this.btnBedroom.Size = new System.Drawing.Size(123, 40);
-            this.btnBedroom.TabIndex = 12;
-            this.btnBedroom.Text = "Lights";
-            this.btnBedroom.UseVisualStyleBackColor = false;
-            this.btnBedroom.Click += new System.EventHandler(this.btnBedroom_Click);
-            // 
-            // btnGuestroom
-            // 
-            this.btnGuestroom.BackColor = System.Drawing.SystemColors.Control;
-            this.btnGuestroom.Location = new System.Drawing.Point(15, 36);
-            this.btnGuestroom.Name = "btnGuestroom";
-            this.btnGuestroom.Size = new System.Drawing.Size(123, 40);
-            this.btnGuestroom.TabIndex = 13;
-            this.btnGuestroom.Text = "Lights";
-            this.btnGuestroom.UseVisualStyleBackColor = false;
-            this.btnGuestroom.Click += new System.EventHandler(this.btnGuestroom_Click);
+            this.button6.BackColor = System.Drawing.SystemColors.Control;
+            this.button6.Location = new System.Drawing.Point(150, 19);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(123, 40);
+            this.button6.TabIndex = 10;
+            this.button6.Text = "Lights";
+            this.button6.UseVisualStyleBackColor = false;
             // 
             // btnFloodlights
             // 
@@ -211,11 +124,171 @@
             this.btnFloodlights.UseVisualStyleBackColor = false;
             this.btnFloodlights.Click += new System.EventHandler(this.btnFloodlights_Click);
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.btnLightsKitchen);
+            this.groupBox2.Location = new System.Drawing.Point(15, 120);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(167, 125);
+            this.groupBox2.TabIndex = 5;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Kitchen";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.Control;
+            this.button1.Location = new System.Drawing.Point(21, 65);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(123, 40);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Lights";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // btnLightsKitchen
+            // 
+            this.btnLightsKitchen.BackColor = System.Drawing.SystemColors.Control;
+            this.btnLightsKitchen.Location = new System.Drawing.Point(21, 19);
+            this.btnLightsKitchen.Name = "btnLightsKitchen";
+            this.btnLightsKitchen.Size = new System.Drawing.Size(123, 40);
+            this.btnLightsKitchen.TabIndex = 0;
+            this.btnLightsKitchen.Text = "Lights";
+            this.btnLightsKitchen.UseVisualStyleBackColor = false;
+            this.btnLightsKitchen.Click += new System.EventHandler(this.btnLightsKitchen_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.button3);
+            this.groupBox3.Controls.Add(this.btnLightsLivingroom);
+            this.groupBox3.Location = new System.Drawing.Point(188, 120);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(312, 125);
+            this.groupBox3.TabIndex = 6;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Livingroom";
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.SystemColors.Control;
+            this.button3.Location = new System.Drawing.Point(17, 65);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(123, 40);
+            this.button3.TabIndex = 10;
+            this.button3.Text = "Lights";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // btnLightsLivingroom
+            // 
+            this.btnLightsLivingroom.BackColor = System.Drawing.SystemColors.Control;
+            this.btnLightsLivingroom.Location = new System.Drawing.Point(17, 19);
+            this.btnLightsLivingroom.Name = "btnLightsLivingroom";
+            this.btnLightsLivingroom.Size = new System.Drawing.Size(123, 40);
+            this.btnLightsLivingroom.TabIndex = 10;
+            this.btnLightsLivingroom.Text = "Lights";
+            this.btnLightsLivingroom.UseVisualStyleBackColor = false;
+            this.btnLightsLivingroom.Click += new System.EventHandler(this.btnLightsLivingroom_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.btnLightsStudy);
+            this.groupBox1.Location = new System.Drawing.Point(15, 248);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(167, 156);
+            this.groupBox1.TabIndex = 7;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Study";
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.SystemColors.Control;
+            this.button2.Location = new System.Drawing.Point(21, 82);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(123, 40);
+            this.button2.TabIndex = 11;
+            this.button2.Text = "Lights";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
+            // btnLightsStudy
+            // 
+            this.btnLightsStudy.BackColor = System.Drawing.SystemColors.Control;
+            this.btnLightsStudy.Location = new System.Drawing.Point(21, 36);
+            this.btnLightsStudy.Name = "btnLightsStudy";
+            this.btnLightsStudy.Size = new System.Drawing.Size(123, 40);
+            this.btnLightsStudy.TabIndex = 11;
+            this.btnLightsStudy.Text = "Lights";
+            this.btnLightsStudy.UseVisualStyleBackColor = false;
+            this.btnLightsStudy.Click += new System.EventHandler(this.btnLightsStudy_Click);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.button4);
+            this.groupBox4.Controls.Add(this.btnBedroom);
+            this.groupBox4.Location = new System.Drawing.Point(188, 248);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(155, 156);
+            this.groupBox4.TabIndex = 8;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Bedroom";
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.SystemColors.Control;
+            this.button4.Location = new System.Drawing.Point(17, 82);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(123, 40);
+            this.button4.TabIndex = 12;
+            this.button4.Text = "Lights";
+            this.button4.UseVisualStyleBackColor = false;
+            // 
+            // btnBedroom
+            // 
+            this.btnBedroom.BackColor = System.Drawing.SystemColors.Control;
+            this.btnBedroom.Location = new System.Drawing.Point(17, 36);
+            this.btnBedroom.Name = "btnBedroom";
+            this.btnBedroom.Size = new System.Drawing.Size(123, 40);
+            this.btnBedroom.TabIndex = 12;
+            this.btnBedroom.Text = "Lights";
+            this.btnBedroom.UseVisualStyleBackColor = false;
+            this.btnBedroom.Click += new System.EventHandler(this.btnBedroom_Click);
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.button5);
+            this.groupBox5.Controls.Add(this.btnGuestroom);
+            this.groupBox5.Location = new System.Drawing.Point(349, 248);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(151, 156);
+            this.groupBox5.TabIndex = 9;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Guest Room";
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.SystemColors.Control;
+            this.button5.Location = new System.Drawing.Point(15, 82);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(123, 40);
+            this.button5.TabIndex = 10;
+            this.button5.Text = "Lights";
+            this.button5.UseVisualStyleBackColor = false;
+            // 
+            // btnGuestroom
+            // 
+            this.btnGuestroom.BackColor = System.Drawing.SystemColors.Control;
+            this.btnGuestroom.Location = new System.Drawing.Point(15, 36);
+            this.btnGuestroom.Name = "btnGuestroom";
+            this.btnGuestroom.Size = new System.Drawing.Size(123, 40);
+            this.btnGuestroom.TabIndex = 13;
+            this.btnGuestroom.Text = "Lights";
+            this.btnGuestroom.UseVisualStyleBackColor = false;
+            this.btnGuestroom.Click += new System.EventHandler(this.btnGuestroom_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(836, 468);
+            this.ClientSize = new System.Drawing.Size(531, 439);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox1);
@@ -257,6 +330,12 @@
         private System.Windows.Forms.Button btnBedroom;
         private System.Windows.Forms.Button btnGuestroom;
         private System.Windows.Forms.Button btnFloodlights;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
 
     }
 }

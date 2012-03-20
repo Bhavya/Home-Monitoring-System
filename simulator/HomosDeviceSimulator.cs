@@ -6,11 +6,15 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Net;
+using System.IO;
+using System.Text;
 
 namespace WindowsFormsApplication1
 {
     public partial class Form1 : Form
     {
+        private bool systemEnable = false;
         private bool lightsKitchen = false;
         private bool lightsLivingroom = false;
         private bool lightsStudy = false;
@@ -111,6 +115,49 @@ namespace WindowsFormsApplication1
                 btnGuestroom.Text = "Lights";
             }
             lightsGuestroom = !lightsGuestroom;
+        }
+
+        private void enableWebRequest(string postVars) {
+            try
+            {
+                WebClient client = new WebClient();
+                client.Headers["User-Agent"] = "Mozilla/4.0 (Compatible; Windows NT 5.1; MSIE 6.0)" +  " (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.1.4322; .NET CLR 2.0.50727)";
+
+                // Download data.
+                byte[] arr = client.DownloadData("http://homos.karmabubble.com/ajax.php?"+ postVars);
+
+                // Write values.
+                Console.WriteLine("--- WebClient result ---");
+                Console.WriteLine(arr.Length);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+
+        private void btnSystemEnable_Click(object sender, EventArgs e)
+        {
+            if (houseID.Text.Equals(""))
+            {
+                MessageBox.Show("Please enter your House Id");
+            }
+            else
+            {
+                if (!systemEnable)
+                {
+                    houseID.Enabled = false;
+                    enableWebRequest("type=onoff&state=1&id=" + houseID.Text);
+                    btnSystemEnable.Text = "Disable";
+                }
+                else
+                {
+                    houseID.Enabled = true;
+                    enableWebRequest("type=onoff&state=0&id="+houseID.Text);
+                    btnSystemEnable.Text = "Enable";
+                }
+                systemEnable = !systemEnable;
+            }
         }
     }
 }
