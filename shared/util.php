@@ -212,14 +212,14 @@
 
 	}
 	function renderCameraData($house_id){
-
+		echo "<h2>Cameras</h2> Sorry, you have not subscribed to this service.";
 	} 
 	function renderLightsData($house_id){
 		echo "<h2>Lights</h2>";
 		$lights = new LightsRecord();
 		$allLights = $lights->load($house_id);
 		foreach ($allLights as $singleLight) {
-			formatSensorData($singleLight->getTimeStamp(), fetchRoomByDeviceID($singleLight->getDevice()), $singleLight->getState());
+			formatSensorData($singleLight->getTimeStamp(), $singleLight->getDevice(), $singleLight->getState());
 		}
 	}
 
@@ -241,7 +241,7 @@
 
 	function insertLightsData($house_id, $state, $device_id){
 		$lights = new LightsRecord();
-		$lights->setState($state, $deviceId, $house_id, date("F j, Y, g:i a"));
+		$lights->setState($state, $device_id, $house_id, date("F j, Y, g:i a"));
 	}
 
 	function insertFloodlightData($house_id, $state, $device_id){
@@ -255,10 +255,10 @@
 	}
 
 	function renderTemperatureData($house_id){
-
+		echo "<h2>Temperature</h2> Sorry, you have not subscribed to this service.";
 	}
 	function renderPowerData($house_id){
-
+		echo "<h2>Power</h2> Sorry, you have not subscribed to this service.";
 	}
 
 	function fetchDeviceId($house_id, $place, $type) {

@@ -31,6 +31,7 @@ class LightsRecord {
         while ($row = mysql_fetch_array($result)) {
             $lights = new LightsRecord();
             $lights->_houseId = $houseId;
+            $lights->_deviceId = $row['device_id'];
 
             if (isset($row['room'])) {
                 $lights->_deviceId = $row['room'];
